@@ -5,7 +5,6 @@ import 'package:dental_clinics_app/core/services/cubit/services_cubit.dart';
 import 'package:dental_clinics_app/core/services/cubit/services_state.dart';
 import 'package:dental_clinics_app/core/themes/app_theme.dart';
 import 'package:dental_clinics_app/l10n/app_localizations.dart';
-import 'package:dental_clinics_app/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
