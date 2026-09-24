@@ -63,6 +63,10 @@ class AppTheme {
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: AppColors.redColor),
         ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColors.redColor),
+        ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
