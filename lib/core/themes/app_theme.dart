@@ -47,12 +47,21 @@ class AppTheme {
           fontSize: 16,
           fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
         ),
+        errorStyle: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+          fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: AppColors.primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColors.redColor),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
