@@ -79,7 +79,10 @@
   "clinic": "Clinic",
   "patient": "Patient",
   "pleaseSelectAccountType": "Please select your account type",
-  "invalidInput": "Invalid input"
+  "invalidInput": "Invalid input",
+  "accountCreatedSuccessfully": "Account Created Successfully",
+  "checkInboxToVerifyEmail": "Check your inbox to verify your email address",
+  "getStarted": "Get Started"
     
 
 

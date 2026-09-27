@@ -586,6 +586,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid input'**
   String get invalidInput;
+
+  /// No description provided for @accountCreatedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Created Successfully'**
+  String get accountCreatedSuccessfully;
+
+  /// No description provided for @checkInboxToVerifyEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your inbox to verify your email address'**
+  String get checkInboxToVerifyEmail;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
 }
 
 class _AppLocalizationsDelegate

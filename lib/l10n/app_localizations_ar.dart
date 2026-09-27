@@ -257,4 +257,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalidInput => 'حقل غير صالح';
+
+  @override
+  String get accountCreatedSuccessfully => 'تم إنشاء الحساب بنجاح';
+
+  @override
+  String get checkInboxToVerifyEmail =>
+      'يرجى التحقق من بريدك الإلكتروني لتأكيد الحساب';
+
+  @override
+  String get getStarted => 'ابدأ الآن';
 }

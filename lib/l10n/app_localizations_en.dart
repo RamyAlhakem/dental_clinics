@@ -259,4 +259,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidInput => 'Invalid input';
+
+  @override
+  String get accountCreatedSuccessfully => 'Account Created Successfully';
+
+  @override
+  String get checkInboxToVerifyEmail =>
+      'Check your inbox to verify your email address';
+
+  @override
+  String get getStarted => 'Get Started';
 }

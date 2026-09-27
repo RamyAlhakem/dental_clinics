@@ -79,5 +79,8 @@
   "clinic": "عيادة",
   "patient": "مريض",
   "pleaseSelectAccountType": "يرجى اختيار نوع الحساب",
-  "invalidInput": "حقل غير صالح"
+  "invalidInput": "حقل غير صالح",
+  "accountCreatedSuccessfully": "تم إنشاء الحساب بنجاح",
+  "checkInboxToVerifyEmail": "يرجى التحقق من بريدك الإلكتروني لتأكيد الحساب",
+  "getStarted": "ابدأ الآن"
 }
