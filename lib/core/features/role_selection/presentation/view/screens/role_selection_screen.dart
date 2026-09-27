@@ -6,7 +6,7 @@ import 'package:dental_clinics_app/core/features/role_selection/presentation/cub
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_state.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/view/widgets/selection_option_widget.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
-import 'package:dental_clinics_app/core/snack_bars.dart/app_snack_bar.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

@@ -1,4 +1,4 @@
-import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar.dart/presentation/view/screens/bottom_navigation_bar_screen.dart';
+import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/view/screens/bottom_navigation_bar_screen.dart';
 import 'package:dental_clinics_app/clinic/features/home/presentation/view/screens/home_screens.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/available_times_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/edit_profile_screen.dart';

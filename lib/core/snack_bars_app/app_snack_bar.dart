@@ -8,6 +8,7 @@ class AppSnackBar {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        margin: EdgeInsets.only(bottom: 30, right: 20, left: 20),
         content: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [Text(msg), Icon(icon)],

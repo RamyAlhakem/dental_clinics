@@ -51,7 +51,7 @@ class AuthRepositoryImpl implements AuthRepository {
       } else if (e.code == 'wrong-password') {
         return AppResult.failure('Wrong password provided for that user.');
       } else {
-        return AppResult.failure("Unknown error");
+        return AppResult.failure("Invalid email or password.");
       }
     } catch (e) {
       return AppResult.failure("Error");

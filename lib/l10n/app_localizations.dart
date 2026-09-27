@@ -604,6 +604,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get Started'**
   String get getStarted;
+
+  /// No description provided for @patientName.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient name'**
+  String get patientName;
+
+  /// No description provided for @invalidEmailOrPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email or password.'**
+  String get invalidEmailOrPassword;
 }
 
 class _AppLocalizationsDelegate

@@ -1,12 +1,14 @@
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_button_gredient.dart';
+import 'package:dental_clinics_app/core/dialog_app/app_dialog.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_in_widget.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_widget.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
-import 'package:dental_clinics_app/core/snack_bars.dart/app_snack_bar.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -32,13 +34,29 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(title: context.arb.signIn),
+      appBar: AppAppBar(title: context.arb.signIn, leading: SizedBox()),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccessState) {
-            // context.pushReplacementNamed(RouteNames.bottomNavigationBar);
+            if (FirebaseAuth.instance.currentUser!.emailVerified) {
+              context.pushReplacementNamed(RouteNames.bottomNavigationBar);
+            } else {
+              AppDialog.showWarning(
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
+                context,
+                title: "Verifiy your email address",
+                subTitle: "Check your inbox to verify your email address",
+                textBtn: "ok",
+                onPressed: () {},
+              );
+            }
           } else if (state is AuthFailedState) {
-            AppSnackBar.showError(context, msg: state.msg);
+            AppSnackBar.showError(
+              context,
+              msg: context.arb.invalidEmailOrPassword,
+            );
           }
         },
         child: Padding(
@@ -86,7 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 5),
               SignWidget(
                 text: context.arb.dontHaveAnAccountSignUpHere,
-                onTap: () => context.pushNamed(RouteNames.signUp),
+                onTap: () => context.pushReplacementNamed(RouteNames.signUp),
               ),
               SizedBox(height: 85),
             ],

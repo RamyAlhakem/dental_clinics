@@ -82,7 +82,9 @@
   "invalidInput": "Invalid input",
   "accountCreatedSuccessfully": "Account Created Successfully",
   "checkInboxToVerifyEmail": "Check your inbox to verify your email address",
-  "getStarted": "Get Started"
+  "getStarted": "Get Started",
+  "patientName":"Patient name",
+  "invalidEmailOrPassword": "Invalid email or password."
     
 
 

@@ -269,4 +269,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get getStarted => 'Get Started';
+
+  @override
+  String get patientName => 'Patient name';
+
+  @override
+  String get invalidEmailOrPassword => 'Invalid email or password.';
 }

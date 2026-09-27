@@ -1,5 +1,5 @@
-import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar.dart/presentation/cubit/bottom_navigation_bar_cubit.dart';
-import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar.dart/presentation/cubit/bottom_navigation_bar_state.dart';
+import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/cubit/bottom_navigation_bar_cubit.dart';
+import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/cubit/bottom_navigation_bar_state.dart';
 import 'package:dental_clinics_app/clinic/features/home/presentation/view/screens/home_screens.dart';
 import 'package:dental_clinics_app/clinic/features/patients/presentation/view/screens/patients_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/profile_screen.dart';

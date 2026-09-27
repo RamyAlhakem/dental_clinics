@@ -11,7 +11,7 @@ import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_widget.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
-import 'package:dental_clinics_app/core/snack_bars.dart/app_snack_bar.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
