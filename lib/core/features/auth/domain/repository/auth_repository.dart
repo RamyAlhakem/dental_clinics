@@ -11,4 +11,5 @@ abstract class AuthRepository {
     required String email,
     required String password,
   });
+  Future<AppResult<UserEntitie>> resetPassword({required String email});
 }

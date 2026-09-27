@@ -1,8 +1,12 @@
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
+import 'package:dental_clinics_app/core/dialog_app/app_dialog.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/forgot_password_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInWidget extends StatelessWidget {
   final TextEditingController email;
@@ -51,7 +55,12 @@ class SignInWidget extends StatelessWidget {
             icon: "lock",
           ),
           SizedBox(height: 2),
-          ForgotPasswordWidget(text: context.arb.forgotPassword, onTap: () {}),
+          ForgotPasswordWidget(
+            text: context.arb.forgotPassword,
+            onTap: () {
+              context.read<AuthCubit>().resetPassword(email: email.text);
+            },
+          ),
         ],
       ),
     );

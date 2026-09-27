@@ -57,6 +57,18 @@ class _SignInScreenState extends State<SignInScreen> {
               context,
               msg: context.arb.invalidEmailOrPassword,
             );
+          } else if (state is AuthSuccessResetPasswordState) {
+            AppDialog.showReset(
+              repeat: true,
+              width: 120,
+              height: 120,
+              fit: BoxFit.cover,
+              context,
+              title: "Password Reset Link Sent",
+              subTitle: "We have sent a password reset link to your email",
+              textBtn: "Done",
+              onPressed: () => context.pop(),
+            );
           }
         },
         child: Padding(
@@ -87,9 +99,6 @@ class _SignInScreenState extends State<SignInScreen> {
                     return AppButtonGredient(
                       text: context.arb.signIn,
                       onTap: () {
-                        // context.pushReplacementNamed(
-                        //   RouteNames.bottomNavigationBar,
-                        // );
                         if (_formState.currentState!.validate()) {
                           context.read<AuthCubit>().signIn(
                             email: _email.text,

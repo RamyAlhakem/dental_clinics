@@ -11,6 +11,8 @@ class AuthLoadingState extends AuthState {}
 
 class AuthSuccessState extends AuthState {}
 
+class AuthSuccessResetPasswordState extends AuthState {}
+
 class AuthFailedState extends AuthState {
   final String msg;
   AuthFailedState({required this.msg});

@@ -1,6 +1,5 @@
 import 'package:dental_clinics_app/core/features/auth/data/models/user_model.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/auth_use_case.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/sign_up_use_case.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,6 +24,16 @@ class AuthCubit extends Cubit<AuthState> {
     );
     if (result.data != null) {
       emit(AuthSuccessState());
+    } else {
+      emit(AuthFailedState(msg: result.msg!));
+    }
+  }
+
+  resetPassword({required String email}) async {
+    emit(AuthLoadingState());
+    final result = await authUseCase.resetPasswordUseCase.call(email: email);
+    if (result.data != null) {
+      emit(AuthSuccessResetPasswordState());
     } else {
       emit(AuthFailedState(msg: result.msg!));
     }

@@ -57,4 +57,16 @@ class AuthRepositoryImpl implements AuthRepository {
       return AppResult.failure("Error");
     }
   }
+
+  @override
+  Future<AppResult<UserEntitie>> resetPassword({required String email}) async {
+    try {
+      await authRemoteDataSource.sendPasswordResetemail(email: email);
+      return AppResult.success(UserEntitie());
+    } on FirebaseAuthException catch (e) {
+      return AppResult.failure("Falied to reset password $e");
+    } catch (e) {
+      return AppResult.failure("Error");
+    }
+  }
 }
