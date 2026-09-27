@@ -19,8 +19,8 @@
     "email":"Email",
     "password":"Password",
     "forgotPassword":"Forgot Password?",
-    "dontHaveAnAccountSignUpHere":"Don’t have an account ? Sign Up here",
-    "haveAnAccountSignInHere":"Have an account ? Sign In here",
+    "dontHaveAnAccountSignUpHere":"Don’t have an account? Sign Up here",
+    "haveAnAccountSignInHere":"Have an account? Sign In here",
     "enterYourEmail":"Enter your email",
     "enterYourPassword":"Enter your password",
     "clinicName":"Clinic name",
@@ -74,7 +74,12 @@
     "sun": "SUN",
     "selectAvailableTimes": "Select available times:",
     "morning": "Morning",
-    "evening": "Evening"
+    "evening": "Evening",
+    "selectAccountType": "Select Account Type",
+  "clinic": "Clinic",
+  "patient": "Patient",
+  "pleaseSelectAccountType": "Please select your account type",
+  "invalidInput": "Invalid input"
     
 
 

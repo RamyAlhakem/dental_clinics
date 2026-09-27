@@ -224,13 +224,13 @@ abstract class AppLocalizations {
   /// No description provided for @dontHaveAnAccountSignUpHere.
   ///
   /// In en, this message translates to:
-  /// **'Don’t have an account ? Sign Up here'**
+  /// **'Don’t have an account? Sign Up here'**
   String get dontHaveAnAccountSignUpHere;
 
   /// No description provided for @haveAnAccountSignInHere.
   ///
   /// In en, this message translates to:
-  /// **'Have an account ? Sign In here'**
+  /// **'Have an account? Sign In here'**
   String get haveAnAccountSignInHere;
 
   /// No description provided for @enterYourEmail.
@@ -556,6 +556,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Evening'**
   String get evening;
+
+  /// No description provided for @selectAccountType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Account Type'**
+  String get selectAccountType;
+
+  /// No description provided for @clinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic'**
+  String get clinic;
+
+  /// No description provided for @patient.
+  ///
+  /// In en, this message translates to:
+  /// **'Patient'**
+  String get patient;
+
+  /// No description provided for @pleaseSelectAccountType.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select your account type'**
+  String get pleaseSelectAccountType;
+
+  /// No description provided for @invalidInput.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid input'**
+  String get invalidInput;
 }
 
 class _AppLocalizationsDelegate

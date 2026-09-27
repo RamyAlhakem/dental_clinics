@@ -7,12 +7,14 @@ class AppButtonGredient extends StatelessWidget {
   final VoidCallback onTap;
   final double? horizontal;
   final double? width;
+  final bool isLoading;
   const AppButtonGredient({
     super.key,
     required this.text,
     required this.onTap,
     this.horizontal,
     this.width,
+    this.isLoading = false,
   });
 
   @override
@@ -23,6 +25,7 @@ class AppButtonGredient extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: horizontal ?? 0),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         width: width ?? context.screenWidth / 1.2,
+        height: 45,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -35,11 +38,19 @@ class AppButtonGredient extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
+        child: isLoading
+            ? SizedBox(
+                width: 20,
+                height: 20,
+                child: Center(
+                  child: CircularProgressIndicator(color: AppColors.whiteColor),
+                ),
+              )
+            : Text(
+                text,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
       ),
     );
   }

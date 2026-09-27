@@ -74,5 +74,10 @@
     "sun": "الأحد",
     "selectAvailableTimes": "اختر الأوقات المتاحة:",
     "morning": "صباحاً",
-    "evening": "مساءً"
+    "evening": "مساءً",
+    "selectAccountType": "اختر نوع الحساب",
+  "clinic": "عيادة",
+  "patient": "مريض",
+  "pleaseSelectAccountType": "يرجى اختيار نوع الحساب",
+  "invalidInput": "حقل غير صالح"
 }

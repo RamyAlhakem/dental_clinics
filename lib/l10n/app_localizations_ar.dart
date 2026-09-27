@@ -242,4 +242,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get evening => 'مساءً';
+
+  @override
+  String get selectAccountType => 'اختر نوع الحساب';
+
+  @override
+  String get clinic => 'عيادة';
+
+  @override
+  String get patient => 'مريض';
+
+  @override
+  String get pleaseSelectAccountType => 'يرجى اختيار نوع الحساب';
+
+  @override
+  String get invalidInput => 'حقل غير صالح';
 }

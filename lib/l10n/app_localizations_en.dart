@@ -77,10 +77,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dontHaveAnAccountSignUpHere =>
-      'Don’t have an account ? Sign Up here';
+      'Don’t have an account? Sign Up here';
 
   @override
-  String get haveAnAccountSignInHere => 'Have an account ? Sign In here';
+  String get haveAnAccountSignInHere => 'Have an account? Sign In here';
 
   @override
   String get enterYourEmail => 'Enter your email';
@@ -244,4 +244,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get evening => 'Evening';
+
+  @override
+  String get selectAccountType => 'Select Account Type';
+
+  @override
+  String get clinic => 'Clinic';
+
+  @override
+  String get patient => 'Patient';
+
+  @override
+  String get pleaseSelectAccountType => 'Please select your account type';
+
+  @override
+  String get invalidInput => 'Invalid input';
 }

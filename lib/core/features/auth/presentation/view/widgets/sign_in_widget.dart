@@ -5,30 +5,55 @@ import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/
 import 'package:flutter/material.dart';
 
 class SignInWidget extends StatelessWidget {
-  const SignInWidget({super.key});
+  final TextEditingController email;
+  final TextEditingController password;
+  final GlobalKey<FormState> formState;
+  const SignInWidget({
+    super.key,
+    required this.email,
+    required this.password,
+    required this.formState,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AppText(text: context.arb.email),
-        SizedBox(height: 5),
-        AppTextFormField(
-          hintText: context.arb.email,
-          labelText: context.arb.enterYourEmail,
-          icon: "mail",
-        ),
-        SizedBox(height: 20),
-        AppText(text: context.arb.password),
-        SizedBox(height: 5),
-        AppTextFormField(
-          hintText: context.arb.password,
-          labelText: context.arb.enterYourPassword,
-          icon: "lock",
-        ),
-        SizedBox(height: 2),
-        ForgotPasswordWidget(text: context.arb.forgotPassword, onTap: () {}),
-      ],
+    return Form(
+      key: formState,
+      child: Column(
+        children: [
+          AppText(text: context.arb.email),
+          SizedBox(height: 5),
+          AppTextFormField(
+            validator: (text) {
+              if (text!.isEmpty) {
+                return context.arb.invalidInput;
+              }
+              return null;
+            },
+            controller: email,
+            hintText: context.arb.email,
+            labelText: context.arb.enterYourEmail,
+            icon: "mail",
+          ),
+          SizedBox(height: 20),
+          AppText(text: context.arb.password),
+          SizedBox(height: 5),
+          AppTextFormField(
+            validator: (text) {
+              if (text!.isEmpty) {
+                return context.arb.invalidInput;
+              }
+              return null;
+            },
+            controller: password,
+            hintText: context.arb.password,
+            labelText: context.arb.enterYourPassword,
+            icon: "lock",
+          ),
+          SizedBox(height: 2),
+          ForgotPasswordWidget(text: context.arb.forgotPassword, onTap: () {}),
+        ],
+      ),
     );
   }
 }

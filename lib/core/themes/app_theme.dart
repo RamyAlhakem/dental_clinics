@@ -31,6 +31,16 @@ class AppTheme {
         ),
         indicatorColor: AppColors.darkPrimary,
       ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: AppColors.lighterPrimaryColor,
+        behavior: SnackBarBehavior.floating,
+        contentTextStyle: TextStyle(
+          color: AppColors.titlColor,
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
+        ),
+      ),
       inputDecorationTheme: InputDecorationThemeData(
         fillColor: AppColors.whiteColor,
         filled: true,
