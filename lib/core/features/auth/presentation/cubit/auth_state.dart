@@ -13,6 +13,13 @@ class AuthSuccessState extends AuthState {}
 
 class AuthSuccessResetPasswordState extends AuthState {}
 
+class AuthFailedResetPasswordState extends AuthState {
+  final String msg;
+  AuthFailedResetPasswordState({required this.msg});
+  @override
+  List<Object?> get props => [msg];
+}
+
 class AuthFailedState extends AuthState {
   final String msg;
   AuthFailedState({required this.msg});

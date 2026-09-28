@@ -54,7 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(title: context.arb.signUp),
+      appBar: AppAppBar(title: context.arb.signUp, leading: SizedBox()),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthFailedState) {

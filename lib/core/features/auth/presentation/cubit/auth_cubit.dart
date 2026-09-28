@@ -35,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
     if (result.data != null) {
       emit(AuthSuccessResetPasswordState());
     } else {
-      emit(AuthFailedState(msg: result.msg!));
+      emit(AuthFailedResetPasswordState(msg: result.msg!));
     }
   }
 }

@@ -274,4 +274,24 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get invalidEmailOrPassword =>
       'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get verificationEmailSent =>
+      'لقد أرسلنا رابط التحقق إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد لإكمال تسجيل الدخول.';
+
+  @override
+  String get verifyYourEmailAddress => 'تأكيد بريدك الإلكتروني';
+
+  @override
+  String get passwordResetLinkSent => 'تم إرسال رابط إعادة ضبط كلمة المرور';
+
+  @override
+  String get weHaveSentPasswordResetLink =>
+      'لقد أرسلنا رابط إعادة ضبط كلمة المرور إلى بريدك الإلكتروني';
+
+  @override
+  String get done => 'تم';
+
+  @override
+  String get pleaseEnterYourEmailFirst => 'يرجى إدخال بريدك الإلكتروني أولاً';
 }

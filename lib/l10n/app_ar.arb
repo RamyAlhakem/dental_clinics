@@ -65,6 +65,7 @@
     "previous": "السابق",
     "save": "حفظ",
     "daysOfTheWeek": "أيام الأسبوع",
+    "verificationEmailSent": "لقد أرسلنا رابط التحقق إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد لإكمال تسجيل الدخول.",
     "mon": "الإثنين",
     "tue": "الثلاثاء",
     "wed": "الأربعاء",
@@ -84,5 +85,11 @@
   "checkInboxToVerifyEmail": "يرجى التحقق من بريدك الإلكتروني لتأكيد الحساب",
   "getStarted": "ابدأ الآن",
   "patientName": "اسم المريض",
-  "invalidEmailOrPassword": "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+  "invalidEmailOrPassword": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "verificationEmailSent": "لقد أرسلنا رابط التحقق إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد لإكمال تسجيل الدخول.",
+  "verifyYourEmailAddress": "تأكيد بريدك الإلكتروني",
+  "passwordResetLinkSent": "تم إرسال رابط إعادة ضبط كلمة المرور",
+  "weHaveSentPasswordResetLink": "لقد أرسلنا رابط إعادة ضبط كلمة المرور إلى بريدك الإلكتروني",
+  "done": "تم",
+  "pleaseEnterYourEmailFirst": "يرجى إدخال بريدك الإلكتروني أولاً"
 }

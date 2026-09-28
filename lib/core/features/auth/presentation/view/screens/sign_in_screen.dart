@@ -32,6 +32,13 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppAppBar(title: context.arb.signIn, leading: SizedBox()),
@@ -46,8 +53,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 120,
                 fit: BoxFit.cover,
                 context,
-                title: "Verifiy your email address",
-                subTitle: "Check your inbox to verify your email address",
+                title: context.arb.verifyYourEmailAddress,
+                subTitle: context.arb.verificationEmailSent,
                 textBtn: "ok",
                 onPressed: () {},
               );
@@ -64,11 +71,13 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 120,
               fit: BoxFit.cover,
               context,
-              title: "Password Reset Link Sent",
-              subTitle: "We have sent a password reset link to your email",
-              textBtn: "Done",
+              title: context.arb.passwordResetLinkSent,
+              subTitle: context.arb.weHaveSentPasswordResetLink,
+              textBtn: context.arb.done,
               onPressed: () => context.pop(),
             );
+          } else if (state is AuthFailedResetPasswordState) {
+            AppSnackBar.showError(context, msg: state.msg);
           }
         },
         child: Padding(

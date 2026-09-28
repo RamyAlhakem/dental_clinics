@@ -275,4 +275,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidEmailOrPassword => 'Invalid email or password.';
+
+  @override
+  String get verificationEmailSent =>
+      'We\'ve sent a verification link to your email. Please check your inbox to complete signing in.';
+
+  @override
+  String get verifyYourEmailAddress => 'Verify your email address';
+
+  @override
+  String get passwordResetLinkSent => 'Password Reset Link Sent';
+
+  @override
+  String get weHaveSentPasswordResetLink =>
+      'We have sent a password reset link to your email';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get pleaseEnterYourEmailFirst => 'Please enter your email first';
 }

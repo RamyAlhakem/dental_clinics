@@ -616,6 +616,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid email or password.'**
   String get invalidEmailOrPassword;
+
+  /// No description provided for @verificationEmailSent.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ve sent a verification link to your email. Please check your inbox to complete signing in.'**
+  String get verificationEmailSent;
+
+  /// No description provided for @verifyYourEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your email address'**
+  String get verifyYourEmailAddress;
+
+  /// No description provided for @passwordResetLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Reset Link Sent'**
+  String get passwordResetLinkSent;
+
+  /// No description provided for @weHaveSentPasswordResetLink.
+  ///
+  /// In en, this message translates to:
+  /// **'We have sent a password reset link to your email'**
+  String get weHaveSentPasswordResetLink;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @pleaseEnterYourEmailFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email first'**
+  String get pleaseEnterYourEmailFirst;
 }
 
 class _AppLocalizationsDelegate

@@ -84,7 +84,13 @@
   "checkInboxToVerifyEmail": "Check your inbox to verify your email address",
   "getStarted": "Get Started",
   "patientName":"Patient name",
-  "invalidEmailOrPassword": "Invalid email or password."
+  "invalidEmailOrPassword": "Invalid email or password.",
+  "verificationEmailSent": "We've sent a verification link to your email. Please check your inbox to complete signing in.",
+  "verifyYourEmailAddress": "Verify your email address",
+  "passwordResetLinkSent": "Password Reset Link Sent",
+  "weHaveSentPasswordResetLink": "We have sent a password reset link to your email",
+  "done": "Done",
+  "pleaseEnterYourEmailFirst": "Please enter your email first"
     
 
 
