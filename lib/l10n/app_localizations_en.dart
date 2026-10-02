@@ -295,4 +295,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pleaseEnterYourEmailFirst => 'Please enter your email first';
+
+  @override
+  String get endodontics => 'Endodontics';
+
+  @override
+  String get cosmeticDentistry => 'Cosmetic Dentistry';
+
+  @override
+  String get pediatricDentistry => 'Pediatric Dentistry';
 }

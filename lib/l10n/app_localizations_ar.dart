@@ -294,4 +294,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pleaseEnterYourEmailFirst => 'يرجى إدخال بريدك الإلكتروني أولاً';
+
+  @override
+  String get endodontics => 'علاج الجذور';
+
+  @override
+  String get cosmeticDentistry => 'طب الأسنان التجميلي';
+
+  @override
+  String get pediatricDentistry => 'طب أسنان الأطفال';
 }

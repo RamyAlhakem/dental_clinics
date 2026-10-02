@@ -91,5 +91,10 @@
   "passwordResetLinkSent": "تم إرسال رابط إعادة ضبط كلمة المرور",
   "weHaveSentPasswordResetLink": "لقد أرسلنا رابط إعادة ضبط كلمة المرور إلى بريدك الإلكتروني",
   "done": "تم",
-  "pleaseEnterYourEmailFirst": "يرجى إدخال بريدك الإلكتروني أولاً"
+  "pleaseEnterYourEmailFirst": "يرجى إدخال بريدك الإلكتروني أولاً",
+  "oralSurgery": "جراحة الفم",
+  "orthodontics": "تقويم الأسنان",
+  "endodontics": "علاج الجذور",
+  "cosmeticDentistry": "طب الأسنان التجميلي",
+  "pediatricDentistry": "طب أسنان الأطفال"
 }

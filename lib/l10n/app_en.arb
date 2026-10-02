@@ -90,7 +90,12 @@
   "passwordResetLinkSent": "Password Reset Link Sent",
   "weHaveSentPasswordResetLink": "We have sent a password reset link to your email",
   "done": "Done",
-  "pleaseEnterYourEmailFirst": "Please enter your email first"
+  "pleaseEnterYourEmailFirst": "Please enter your email first",
+  "oralSurgery": "Oral Surgery",
+  "orthodontics": "Orthodontics",
+  "endodontics": "Endodontics",
+  "cosmeticDentistry": "Cosmetic Dentistry",
+  "pediatricDentistry": "Pediatric Dentistry"
     
 
 

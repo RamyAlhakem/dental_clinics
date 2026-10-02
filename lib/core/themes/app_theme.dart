@@ -97,6 +97,14 @@ class AppTheme {
           ),
         ),
       ),
+      // dropdownMenuTheme: DropdownMenuThemeData(
+      //   textStyle: TextStyle(
+      //     color: AppColors.titlColor,
+      //     fontSize: 14,
+      //     fontWeight: FontWeight.w500,
+      //     fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
+      //   ),
+      // ),
 
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -110,6 +118,9 @@ class AppTheme {
             ),
           ),
         ),
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.primaryColor,
       ),
 
       textTheme: TextTheme(

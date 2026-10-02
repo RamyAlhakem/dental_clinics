@@ -652,6 +652,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please enter your email first'**
   String get pleaseEnterYourEmailFirst;
+
+  /// No description provided for @endodontics.
+  ///
+  /// In en, this message translates to:
+  /// **'Endodontics'**
+  String get endodontics;
+
+  /// No description provided for @cosmeticDentistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Cosmetic Dentistry'**
+  String get cosmeticDentistry;
+
+  /// No description provided for @pediatricDentistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Pediatric Dentistry'**
+  String get pediatricDentistry;
 }
 
 class _AppLocalizationsDelegate

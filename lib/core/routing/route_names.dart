@@ -7,4 +7,5 @@ class RouteNames {
   static const String editProfile = "edit profile";
   static const String availableTimes = "available times";
   static const String services = "services";
+  static const String addNewService = "add new service";
 }
