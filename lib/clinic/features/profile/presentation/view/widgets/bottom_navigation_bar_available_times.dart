@@ -4,6 +4,7 @@ import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomNnavigationBarAvailable extends StatelessWidget {
   const BottomNnavigationBarAvailable({super.key});
@@ -20,7 +21,7 @@ class BottomNnavigationBarAvailable extends StatelessWidget {
             AppButton(
               backgroundColor: AppColors.whiteColor,
               foregroundColor: AppColors.primaryColor,
-              onPressed: () {},
+              onPressed: () => context.pop(),
               text: context.arb.previous,
               width: context.screenWidth / 2.5,
             ),

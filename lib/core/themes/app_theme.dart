@@ -119,6 +119,16 @@ class AppTheme {
           ),
         ),
       ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.all(AppColors.whiteColor),
+        trackColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.primaryColor;
+          } else {
+            return AppColors.lightGreyColor;
+          }
+        }),
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.primaryColor,
       ),
