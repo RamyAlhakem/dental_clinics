@@ -17,7 +17,7 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNnavigationBarAvailable(),
+      bottomNavigationBar: BottomNnavigationBarAvailable(onTap: () {}),
       appBar: AppAppBar(title: context.arb.availableTimes),
       body: Padding(
         padding: const EdgeInsets.all(20),

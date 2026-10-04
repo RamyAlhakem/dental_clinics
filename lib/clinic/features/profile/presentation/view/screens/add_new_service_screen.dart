@@ -1,12 +1,16 @@
-import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_navigation_bar_available_times.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_widget_add_new_service.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/drop_down_service_widget.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/service_status_widget.dart';
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddNewServiceScreen extends StatefulWidget {
   const AddNewServiceScreen({super.key});
@@ -16,44 +20,65 @@ class AddNewServiceScreen extends StatefulWidget {
 }
 
 class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
+  late TextEditingController _doctorName;
+  @override
+  void initState() {
+    _doctorName = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _doctorName.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppAppBar(title: "Add New Service"),
-      bottomNavigationBar: BottomNnavigationBarAvailable(),
+    return BlocListener<ProfileCubit, ProfileState>(
+      listener: (context, state) {
+        if (state is SuccessUserInfoProfileState) {
+          AppSnackBar.showSuccess(context, msg: state.msg);
+        }
+      },
+      child: Scaffold(
+        appBar: AppAppBar(title: "Add New Service"),
+        bottomNavigationBar: BottomWidgetAddNewService(controller: _doctorName),
 
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            AppText(text: "Service name"),
-            SizedBox(height: 5),
-            DropDownServiceWidget(),
-            SizedBox(height: 20),
-            AppText(text: "Doctor name"),
-            SizedBox(height: 5),
-            AppTextFormField(
-              hintText: "Doctor name",
-              labelText: "Enter doctor name",
-              icon: "account_circle",
-            ),
-            SizedBox(height: 30),
-            ServiceStatusWidget(),
-            Divider(color: AppColors.darkGreyColor),
-            Row(
-              spacing: 10,
-              children: [
-                SvgWidget(icon: "info"),
-                Text(
-                  "Service will be visible to patients when enabled",
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: AppColors.iconColor,
-                    fontWeight: FontWeight.w500,
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              AppText(text: "Service name"),
+              SizedBox(height: 5),
+              DropDownServiceWidget(),
+              SizedBox(height: 20),
+              AppText(text: "Doctor name"),
+              SizedBox(height: 5),
+              AppTextFormField(
+                controller: _doctorName,
+                hintText: "Doctor name",
+                labelText: "Enter doctor name",
+                icon: "account_circle",
+              ),
+              SizedBox(height: 30),
+              ServiceStatusWidget(),
+              Divider(color: AppColors.darkGreyColor),
+              Row(
+                spacing: 10,
+                children: [
+                  SvgWidget(icon: "info"),
+                  Text(
+                    "Service will be visible to patients when enabled",
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: AppColors.iconColor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

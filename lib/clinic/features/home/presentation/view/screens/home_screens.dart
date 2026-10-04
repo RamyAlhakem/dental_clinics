@@ -1,13 +1,15 @@
-import 'package:dental_clinics_app/clinic/features/home/presentation/view/widgets/dialog_select_language.dart';
-import 'package:dental_clinics_app/core/componeents/appointment_card.dart';
+import 'package:dental_clinics_app/clinic/features/home/presentation/view/widgets/app_bar_home.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/home/presentation/view/widgets/home_card.dart';
 import 'package:dental_clinics_app/clinic/features/home/presentation/view/widgets/next_appointments_widget.dart';
-import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
+import 'package:dental_clinics_app/core/componeents/appointment_card.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
+import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dental_clinics_app/l10n/app_localizations.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,34 +19,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _getInfo() {
+    final state = context.read<AuthCubit>().state;
+    final role = context.read<RoleCubit>().state.selectedRole;
+    if (state is AuthSuccessState) {
+      context.read<ProfileCubit>().getInfo(
+        role: role!.name,
+        userId: state.user.id,
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    _getInfo();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(
-        leadingWidth: 0,
-        title: context.arb.hello,
-        subtitle: "ramy alhakem",
-        listTileLeading: Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: SvgPicture.asset("assets/icons/logo.svg"),
-        ),
-        centerTitle: false,
-        leading: SizedBox(),
-        actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => DialogSelectLanguage(),
-              );
-            },
-            icon: Icon(Icons.language),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.notifications_outlined),
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60),
+        child: AppBarHome(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

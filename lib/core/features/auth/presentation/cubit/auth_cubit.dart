@@ -10,7 +10,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoadingState());
     final result = await authUseCase.signUpUseCase.call(user: user, role: role);
     if (result.data != null) {
-      emit(AuthSuccessState());
+      emit(AuthSuccessState(user: result.data!));
     } else {
       emit(AuthFailedState(msg: result.msg!));
     }
@@ -23,7 +23,7 @@ class AuthCubit extends Cubit<AuthState> {
       password: password,
     );
     if (result.data != null) {
-      emit(AuthSuccessState());
+      emit(AuthSuccessState(user: result.data!));
     } else {
       emit(AuthFailedState(msg: result.msg!));
     }

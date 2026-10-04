@@ -17,9 +17,16 @@ class AuthRepositoryImpl implements AuthRepository {
       final credential = await authRemoteDataSource
           .createUserWithEmailAndPassword(user: user);
       await authRemoteDataSource.sendEmailVerification();
-      await authRemoteDataSource.createNewUser(user: user, role: role);
+
+      await authRemoteDataSource.createNewUser(
+        user: user.copyWith(id: credential.user!.uid),
+        role: role,
+      );
       return AppResult.success(
-        UserEntitie(email: credential.user?.email ?? ""),
+        UserEntitie(
+          email: credential.user?.email ?? "",
+          id: credential.user!.uid,
+        ),
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == "weak-password") {
@@ -40,11 +47,13 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     try {
-      await authRemoteDataSource.signInWithEmailAndPassword(
+      final data = await authRemoteDataSource.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return AppResult.success(UserEntitie());
+      return AppResult.success(
+        UserEntitie(id: data.user!.uid, email: data.user!.email!),
+      );
     } on FirebaseException catch (e) {
       if (e.code == 'user-not-found') {
         return AppResult.failure('No user found for that email.');

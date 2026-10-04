@@ -1,5 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/cubit/bottom_navigation_bar_cubit.dart';
+import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source_imp.dart';
+import 'package:dental_clinics_app/clinic/features/profile/data/repository/profile_repository_imp.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/add_new_service_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/get_info_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/data/data_source/remote_date/auth_remote_data_source_impl.dart';
 import 'package:dental_clinics_app/core/features/auth/data/repository/auth_repository_impl.dart';
@@ -48,7 +53,26 @@ class _DentalClinicsState extends State<DentalClinics> {
         BlocProvider(create: (conteext) => BottomNavigationBarCubit()),
         BlocProvider(create: (conteext) => ServicesCubit()),
         BlocProvider(create: (conteext) => RoleCubit()),
-        BlocProvider(create: (conteext) => ProfileCubit()),
+        BlocProvider(
+          create: (conteext) => ProfileCubit(
+            profileUseCase: ProfileUseCase(
+              getInfoUseCase: GetInfoUseCase(
+                repository: ProfileRepositoryImp(
+                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+              addNewServiceUseCase: AddNewServiceUseCase(
+                repository: ProfileRepositoryImp(
+                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
         BlocProvider(
           create: (conteext) => AuthCubit(
             authUseCase: AuthUseCase(

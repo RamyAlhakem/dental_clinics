@@ -7,7 +7,7 @@ abstract class AuthRemoteDataSource {
   });
   Future<void> sendEmailVerification();
   Future<void> createNewUser({required UserModel user, required String role});
-  Future<void> signInWithEmailAndPassword({
+  Future<UserCredential> signInWithEmailAndPassword({
     required String email,
     required String password,
   });
