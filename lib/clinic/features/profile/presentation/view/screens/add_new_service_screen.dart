@@ -26,6 +26,7 @@ class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
   @override
   void initState() {
     _doctorName = TextEditingController();
+    context.read<ProfileCubit>().clearData();
     super.initState();
   }
 
