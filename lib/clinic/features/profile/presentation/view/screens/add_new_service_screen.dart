@@ -1,3 +1,5 @@
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
+import 'package:dental_clinics_app/clinic/features/profile/extensions/string_extension.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_widget_add_new_service.dart';
@@ -15,7 +17,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AddNewServiceScreen extends StatefulWidget {
-  const AddNewServiceScreen({super.key});
+  final ServiceEntities? service;
+  const AddNewServiceScreen({super.key, this.service});
 
   @override
   State<AddNewServiceScreen> createState() => _AddNewServiceScreenState();
@@ -25,8 +28,17 @@ class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
   late TextEditingController _doctorName;
   @override
   void initState() {
-    _doctorName = TextEditingController();
-    context.read<ProfileCubit>().clearData();
+    if (widget.service != null) {
+      _doctorName = TextEditingController(text: widget.service!.doctorName);
+      context.read<ProfileCubit>().setData(
+        status: widget.service!.status,
+        selectedService: widget.service!.serviceName.getService(),
+      );
+    } else {
+      _doctorName = TextEditingController();
+      context.read<ProfileCubit>().clearData();
+    }
+
     super.initState();
   }
 

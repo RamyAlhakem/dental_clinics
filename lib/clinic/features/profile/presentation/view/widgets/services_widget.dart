@@ -2,8 +2,10 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/entities/servi
 import 'package:dental_clinics_app/clinic/features/profile/extensions/string_extension.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
+import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ServicesWidget extends StatelessWidget {
   final ServiceEntities service;
@@ -11,33 +13,38 @@ class ServicesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: context.screenWidth / 2.5,
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-      decoration: BoxDecoration(
-        color: service.status ? AppColors.primaryColor : AppColors.whiteColor,
-        border: Border.all(color: AppColors.primaryColor),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        spacing: 10,
-        children: [
-          SvgWidget(
-            icon: "dentistry",
-            color: service.status
-                ? AppColors.whiteColor
-                : AppColors.primaryColor,
-          ),
-          Text(
-            service.serviceName.getTitle(context),
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(RouteNames.addNewService, extra: service);
+      },
+      child: Container(
+        width: context.screenWidth / 2.5,
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        decoration: BoxDecoration(
+          color: service.status ? AppColors.primaryColor : AppColors.whiteColor,
+          border: Border.all(color: AppColors.primaryColor),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          spacing: 10,
+          children: [
+            SvgWidget(
+              icon: "dentistry",
               color: service.status
                   ? AppColors.whiteColor
                   : AppColors.primaryColor,
-              fontSize: 15,
             ),
-          ),
-        ],
+            Text(
+              service.serviceName.getTitle(context),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: service.status
+                    ? AppColors.whiteColor
+                    : AppColors.primaryColor,
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

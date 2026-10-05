@@ -44,6 +44,16 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
+  setData({required bool status, required ServiceType selectedService}) {
+    emit(
+      InitiSelectedServiceState(
+        isEnabled: status,
+        selectedService: selectedService,
+        user: state.user,
+      ),
+    );
+  }
+
   getInfo({required String role, required String userId}) async {
     emit(
       LoadingUserInfoProfileState(
