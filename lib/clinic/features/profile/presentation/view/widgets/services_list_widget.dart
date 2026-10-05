@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/extensions/string_extension.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/services_widget.dart';
@@ -31,7 +32,11 @@ class ServicesListWidget extends StatelessWidget {
             spacing: 10,
             runSpacing: 10,
             children: state.user!.services
-                .map((service) => ServicesWidget(service: service.serviceName))
+                .map(
+                  (service) => ServicesWidget(
+                    service: service.serviceName.getTitle(context),
+                  ),
+                )
                 .toList(),
           );
         }

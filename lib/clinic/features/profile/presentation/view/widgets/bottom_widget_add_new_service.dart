@@ -45,7 +45,7 @@ _addService(BuildContext context, TextEditingController controller) {
     role: role!.name,
     docId: user!.docId,
     service: ServiceModel(
-      serviceName: selectedService!.getTitle(context),
+      serviceName: selectedService!.name,
       doctorName: controller.text,
       status: status,
     ),
