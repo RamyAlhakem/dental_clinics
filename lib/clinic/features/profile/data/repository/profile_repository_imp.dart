@@ -23,7 +23,7 @@ class ProfileRepositoryImp implements ProfileRepository {
 
       final info = data.docs.first.data();
       info.addAll({"docId": docId});
-
+      print("get info===================>>>>>>>>>>> $info");
       return AppResult.success(UserModel.fromJson(info));
     } on FirebaseException catch (e) {
       return AppResult.failure("Firebase error occur");

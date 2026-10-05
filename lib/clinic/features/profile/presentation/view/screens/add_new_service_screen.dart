@@ -7,10 +7,12 @@ import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
+import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class AddNewServiceScreen extends StatefulWidget {
   const AddNewServiceScreen({super.key});
@@ -39,6 +41,7 @@ class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
       listener: (context, state) {
         if (state is SuccessUserInfoProfileState) {
           AppSnackBar.showSuccess(context, msg: state.msg);
+          context.pushReplacementNamed(RouteNames.services);
         }
       },
       child: Scaffold(
