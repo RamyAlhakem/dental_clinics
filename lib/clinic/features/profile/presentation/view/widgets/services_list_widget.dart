@@ -32,11 +32,7 @@ class ServicesListWidget extends StatelessWidget {
             spacing: 10,
             runSpacing: 10,
             children: state.user!.services
-                .map(
-                  (service) => ServicesWidget(
-                    service: service.serviceName.getTitle(context),
-                  ),
-                )
+                .map((service) => ServicesWidget(service: service))
                 .toList(),
           );
         }

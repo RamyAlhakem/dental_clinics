@@ -1,9 +1,9 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
-import 'package:dental_clinics_app/clinic/features/profile/extensions/service_extension.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_navigation_bar_available_times.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,14 +40,20 @@ _addService(BuildContext context, TextEditingController controller) {
   final status = context.read<ProfileCubit>().state.isEnabled;
   final user = context.read<ProfileCubit>().state.user;
   final selectedService = context.read<ProfileCubit>().state.selectedService;
-
-  context.read<ProfileCubit>().addNewService(
-    role: role!.name,
-    docId: user!.docId,
-    service: ServiceModel(
-      serviceName: selectedService!.name,
-      doctorName: controller.text,
-      status: status,
-    ),
+  final isExist = user!.services.any(
+    (e) => e.serviceName.contains(selectedService!.name),
   );
+  if (isExist) {
+    AppSnackBar.showError(context, msg: "Service already exist");
+  } else {
+    context.read<ProfileCubit>().addNewService(
+      role: role!.name,
+      docId: user.docId,
+      service: ServiceModel(
+        serviceName: selectedService!.name,
+        doctorName: controller.text,
+        status: status,
+      ),
+    );
+  }
 }
