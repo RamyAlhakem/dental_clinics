@@ -21,7 +21,7 @@ class AppBarHome extends StatelessWidget {
             subtitle: state.user!.name,
             listTileLeading: Padding(
               padding: const EdgeInsets.all(3.0),
-              child: SvgPicture.asset("assets/icons/logo.svg"),
+              child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
             leading: SizedBox(),
@@ -48,7 +48,7 @@ class AppBarHome extends StatelessWidget {
             subtitle: "Loading...",
             listTileLeading: Padding(
               padding: const EdgeInsets.all(3.0),
-              child: SvgPicture.asset("assets/icons/logo.svg"),
+              child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
             leading: SizedBox(),
@@ -75,7 +75,7 @@ class AppBarHome extends StatelessWidget {
             subtitle: "Unknown",
             listTileLeading: Padding(
               padding: const EdgeInsets.all(3.0),
-              child: SvgPicture.asset("assets/icons/logo.svg"),
+              child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
             leading: SizedBox(),
