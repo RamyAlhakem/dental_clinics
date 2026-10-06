@@ -1,4 +1,5 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_navigation_bar_available_times.dart';
@@ -9,7 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomWidgetAddNewService extends StatelessWidget {
   final TextEditingController controller;
-  const BottomWidgetAddNewService({super.key, required this.controller});
+  final ServiceEntities? service;
+  const BottomWidgetAddNewService({
+    super.key,
+    required this.controller,
+    this.service,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,19 @@ class BottomWidgetAddNewService extends StatelessWidget {
           return BottomNnavigationBarAvailable(
             isLoading: false,
             onTap: () {
-              _addService(context, controller);
+              if (service != null) {
+                _editService(
+                  context,
+                  controller,
+                  service: ServiceModel(
+                    serviceName: service!.serviceName,
+                    doctorName: service!.doctorName,
+                    status: service!.status,
+                  ),
+                );
+              } else {
+                _addService(context, controller);
+              }
             },
           );
         }
@@ -56,4 +74,25 @@ _addService(BuildContext context, TextEditingController controller) {
       ),
     );
   }
+}
+
+_editService(
+  BuildContext context,
+  TextEditingController controller, {
+  required ServiceModel service,
+}) {
+  final role = context.read<RoleCubit>().state.selectedRole;
+  final status = context.read<ProfileCubit>().state.isEnabled;
+  final user = context.read<ProfileCubit>().state.user;
+  final selectedService = context.read<ProfileCubit>().state.selectedService;
+  context.read<ProfileCubit>().editService(
+    role: role!.name,
+    docId: user!.docId,
+    service: service,
+    newService: ServiceModel(
+      serviceName: selectedService!.name,
+      doctorName: controller.text,
+      status: status,
+    ),
+  );
 }

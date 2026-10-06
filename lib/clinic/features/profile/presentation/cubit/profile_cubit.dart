@@ -123,4 +123,44 @@ class ProfileCubit extends Cubit<ProfileState> {
       );
     }
   }
+
+  editService({
+    required String role,
+    required String docId,
+    required ServiceModel service,
+    required ServiceModel newService,
+  }) async {
+    emit(
+      LoadingUserInfoProfileState(
+        isEnabled: state.isEnabled,
+        selectedService: state.selectedService,
+        user: state.user,
+      ),
+    );
+    final result = await profileUseCase.editServiceUseCase.call(
+      role: role,
+      docId: docId,
+      service: service,
+      newService: newService,
+    );
+    if (result.data != null) {
+      emit(
+        SuccessUserInfoProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          msg: result.data!,
+          user: state.user,
+        ),
+      );
+    } else {
+      emit(
+        FailedUserInfoProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          msg: result.msg!,
+          user: state.user,
+        ),
+      );
+    }
+  }
 }

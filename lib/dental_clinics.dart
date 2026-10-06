@@ -3,6 +3,7 @@ import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/present
 import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source_imp.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/repository/profile_repository_imp.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/add_new_service_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/edit_service_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/get_info_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
@@ -64,6 +65,13 @@ class _DentalClinicsState extends State<DentalClinics> {
                 ),
               ),
               addNewServiceUseCase: AddNewServiceUseCase(
+                repository: ProfileRepositoryImp(
+                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+              editServiceUseCase: EditServiceUseCase(
                 repository: ProfileRepositoryImp(
                   profileRemoteDataSource: ProfileRemoteDataSourceImp(
                     firebaseFirestore: FirebaseFirestore.instance,

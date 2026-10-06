@@ -58,8 +58,13 @@ class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
         }
       },
       child: Scaffold(
-        appBar: AppAppBar(title: "Add New Service"),
-        bottomNavigationBar: BottomWidgetAddNewService(controller: _doctorName),
+        appBar: AppAppBar(
+          title: widget.service != null ? "Edit Service" : "Add New Service",
+        ),
+        bottomNavigationBar: BottomWidgetAddNewService(
+          controller: _doctorName,
+          service: widget.service,
+        ),
 
         body: Padding(
           padding: const EdgeInsets.all(20.0),

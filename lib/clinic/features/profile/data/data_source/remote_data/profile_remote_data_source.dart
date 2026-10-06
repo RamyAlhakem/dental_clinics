@@ -7,6 +7,12 @@ abstract class ProfileRemoteDataSource {
     required String docId,
     required ServiceModel service,
   });
+  Future editService({
+    required String role,
+    required String docId,
+    required ServiceModel service,
+    required ServiceModel newService,
+  });
   Future<QuerySnapshot<Map<String, dynamic>>> getInfoUser({
     required String role,
     required String userId,

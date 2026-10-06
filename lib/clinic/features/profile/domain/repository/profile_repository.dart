@@ -12,4 +12,10 @@ abstract class ProfileRepository {
     required String docId,
     required ServiceModel service,
   });
+  Future<AppResult<String>> editService({
+    required String role,
+    required String docId,
+    required ServiceModel service,
+    required ServiceModel newService,
+  });
 }

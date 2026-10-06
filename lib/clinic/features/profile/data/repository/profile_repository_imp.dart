@@ -51,4 +51,26 @@ class ProfileRepositoryImp implements ProfileRepository {
       return AppResult.failure("Unknown error ");
     }
   }
+
+  @override
+  Future<AppResult<String>> editService({
+    required String role,
+    required String docId,
+    required ServiceModel service,
+    required ServiceModel newService,
+  }) async {
+    try {
+      await profileRemoteDataSource.editService(
+        role: role,
+        docId: docId,
+        service: service,
+        newService: newService,
+      );
+      return AppResult.success("Service updated successfully");
+    } on FirebaseException catch (e) {
+      return AppResult.failure("Firebase exception ");
+    } catch (e) {
+      return AppResult.failure("Unknown error ");
+    }
+  }
 }

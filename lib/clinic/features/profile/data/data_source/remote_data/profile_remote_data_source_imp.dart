@@ -26,4 +26,19 @@ class ProfileRemoteDataSourceImp implements ProfileRemoteDataSource {
         .where("id", isEqualTo: userId)
         .get();
   }
+
+  @override
+  Future<dynamic> editService({
+    required String role,
+    required String docId,
+    required ServiceModel service,
+    required ServiceModel newService,
+  }) async {
+    await firebaseFirestore.collection(role).doc(docId).update({
+      "services": FieldValue.arrayRemove([service.toJson()]),
+    });
+    await firebaseFirestore.collection(role).doc(docId).update({
+      "services": FieldValue.arrayUnion([newService.toJson()]),
+    });
+  }
 }
