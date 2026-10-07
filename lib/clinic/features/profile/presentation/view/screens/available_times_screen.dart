@@ -1,10 +1,12 @@
-import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/bottom_navigation_bar_available_times.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/day_widget.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/time_widget.dart';
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
+import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AvailableTimesScreen extends StatefulWidget {
   const AvailableTimesScreen({super.key});
@@ -17,7 +19,13 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNnavigationBarAvailable(onTap: () {}),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.pushNamed(RouteNames.screenDay);
+        },
+        child: SvgWidget(icon: "add"),
+      ),
+      // bottomNavigationBar: BottomNnavigationBarAvailable(onTap: () {}),
       appBar: AppAppBar(title: context.arb.availableTimes),
       body: Padding(
         padding: const EdgeInsets.all(20),

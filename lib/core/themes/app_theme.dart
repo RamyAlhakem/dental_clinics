@@ -132,6 +132,17 @@ class AppTheme {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.primaryColor,
       ),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.primaryColor;
+          } else {
+            return AppColors.whiteColor;
+          }
+        }),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        side: BorderSide(color: AppColors.primaryColor),
+      ),
 
       textTheme: TextTheme(
         headlineLarge: TextStyle(

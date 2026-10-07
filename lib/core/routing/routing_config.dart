@@ -4,6 +4,7 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/entities/servi
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/add_new_service_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/available_times_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/edit_profile_screen.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/screen_day.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/services_screen.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/screens/sign_in_screen.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/screens/sign_up_screen.dart';
@@ -60,6 +61,11 @@ class RoutingConfig {
         path: "/addNewService",
         builder: (context, state) =>
             AddNewServiceScreen(service: state.extra as ServiceEntities?),
+      ),
+      GoRoute(
+        name: RouteNames.screenDay,
+        path: "/screenDay",
+        builder: (context, state) => ScreenDay(),
       ),
     ],
   );
