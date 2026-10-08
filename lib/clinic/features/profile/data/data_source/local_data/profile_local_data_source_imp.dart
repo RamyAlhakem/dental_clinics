@@ -6,4 +6,9 @@ class ProfileLocalDataSourceIml implements ProfileLocalDataSourse {
   List<ServiceType> getStaticServices() {
     return ServiceType.values;
   }
+
+  @override
+  List<WeekDays> getStaticWeekDays() {
+    return WeekDays.values;
+  }
 }

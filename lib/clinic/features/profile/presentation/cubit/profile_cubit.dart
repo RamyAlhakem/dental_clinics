@@ -11,7 +11,9 @@ class ProfileCubit extends Cubit<ProfileState> {
         InitiSelectedServiceState(
           selectedService: null,
           isEnabled: false,
+          enabledDay: false,
           user: null,
+          selectedDay: null,
         ),
       );
   selectService(ServiceType service) {
@@ -19,7 +21,21 @@ class ProfileCubit extends Cubit<ProfileState> {
       ChangingSelectedServiceState(
         selectedService: service,
         isEnabled: state.isEnabled,
+        enabledDay: state.enabledDay,
         user: state.user,
+        selectedDay: state.selectedDay,
+      ),
+    );
+  }
+
+  selectDay(WeekDays day) {
+    emit(
+      ChangingSelectedDayState(
+        selectedService: state.selectedService,
+        isEnabled: state.isEnabled,
+        user: state.user,
+        selectedDay: day,
+        enabledDay: state.enabledDay,
       ),
     );
   }
@@ -30,6 +46,20 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: val,
         selectedService: state.selectedService,
         user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: state.enabledDay,
+      ),
+    );
+  }
+
+  changeEnabledDay(bool val) {
+    emit(
+      ChangingSelectedServiceState(
+        isEnabled: state.isEnabled,
+        selectedService: state.selectedService,
+        user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: val,
       ),
     );
   }
@@ -40,6 +70,8 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: false,
         selectedService: null,
         user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: state.enabledDay,
       ),
     );
   }
@@ -50,6 +82,8 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: status,
         selectedService: selectedService,
         user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: state.enabledDay,
       ),
     );
   }
@@ -60,6 +94,8 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: state.isEnabled,
         selectedService: state.selectedService,
         user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: state.enabledDay,
       ),
     );
     final result = await profileUseCase.getInfoUseCase.call(
@@ -72,6 +108,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           isEnabled: state.isEnabled,
           selectedService: state.selectedService,
           user: result.data!,
+          enabledDay: state.enabledDay,
         ),
       );
     } else {
@@ -81,6 +118,8 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           msg: result.msg!,
           user: state.user,
+          selectedDay: state.selectedDay,
+          enabledDay: state.enabledDay,
         ),
       );
     }
@@ -96,6 +135,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: state.isEnabled,
         selectedService: state.selectedService,
         user: state.user,
+        enabledDay: state.enabledDay,
       ),
     );
     final result = await profileUseCase.addNewServiceUseCase.call(
@@ -110,6 +150,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           msg: result.data!,
           user: state.user,
+          enabledDay: state.enabledDay,
         ),
       );
     } else {
@@ -119,6 +160,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           msg: result.msg!,
           user: state.user,
+          enabledDay: state.enabledDay,
         ),
       );
     }
@@ -135,6 +177,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         isEnabled: state.isEnabled,
         selectedService: state.selectedService,
         user: state.user,
+        enabledDay: state.enabledDay,
       ),
     );
     final result = await profileUseCase.editServiceUseCase.call(
@@ -150,6 +193,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           msg: result.data!,
           user: state.user,
+          enabledDay: state.enabledDay,
         ),
       );
     } else {
@@ -159,6 +203,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           msg: result.msg!,
           user: state.user,
+          enabledDay: state.enabledDay,
         ),
       );
     }

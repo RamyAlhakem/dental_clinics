@@ -1,3 +1,6 @@
+import 'package:dental_clinics_app/clinic/features/profile/data/data_source/local_data/profile_local_data_source_imp.dart';
+import 'package:dental_clinics_app/clinic/features/profile/extensions/day_extension.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/day_widget.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/widgets/time_widget.dart';
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
@@ -6,6 +9,7 @@ import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AvailableTimesScreen extends StatefulWidget {
@@ -38,15 +42,18 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
 
               spacing: 10,
               runSpacing: 10,
-              children: [
-                DayWidget(title: context.arb.mon, subTitle: "1"),
-                DayWidget(title: context.arb.tue, subTitle: "2"),
-                DayWidget(title: context.arb.wed, subTitle: "3"),
-                DayWidget(title: context.arb.thu, subTitle: "4"),
-                DayWidget(title: context.arb.fri, subTitle: "5"),
-                DayWidget(title: context.arb.sat, subTitle: "6"),
-                DayWidget(title: context.arb.sun, subTitle: "7"),
-              ],
+              children: ProfileLocalDataSourceIml()
+                  .getStaticWeekDays()
+                  .map(
+                    (day) => DayWidget(
+                      title: day.getTitle(context),
+                      subTitle: "1",
+                      onTap: () {
+                        context.read<ProfileCubit>().selectDay(day);
+                      },
+                    ),
+                  )
+                  .toList(),
             ),
             SizedBox(height: 20),
             AppText(text: context.arb.selectAvailableTimes),

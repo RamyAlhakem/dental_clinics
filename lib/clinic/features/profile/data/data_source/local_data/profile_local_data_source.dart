@@ -2,4 +2,5 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/entities/servi
 
 abstract class ProfileLocalDataSourse {
   List<ServiceType> getStaticServices();
+  List<WeekDays> getStaticWeekDays();
 }

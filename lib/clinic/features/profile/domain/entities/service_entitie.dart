@@ -8,6 +8,8 @@ enum ServiceType {
   pedodontics,
 }
 
+enum WeekDays { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+
 class ServiceEntities {
   final String serviceName;
   final String doctorName;
