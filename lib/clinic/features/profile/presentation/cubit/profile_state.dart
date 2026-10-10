@@ -1,11 +1,13 @@
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/entities/user_entitie.dart';
+import 'package:flutter/material.dart';
 
 class ProfileState {
   final ServiceType? selectedService;
   final WeekDays? selectedDay;
   final bool isEnabled;
   final bool enabledDay;
+
   final UserEntitie? user;
   const ProfileState({
     this.selectedService,
@@ -85,6 +87,28 @@ class FailedUserInfoProfileState extends ProfileState {
     super.selectedService,
     required super.isEnabled,
     required this.msg,
+    super.user,
+    super.selectedDay,
+    required super.enabledDay,
+  });
+}
+
+class ChangeStartTimeProfileState extends ProfileState {
+  ChangeStartTimeProfileState({
+    super.selectedService,
+    required super.isEnabled,
+
+    super.user,
+    super.selectedDay,
+    required super.enabledDay,
+  });
+}
+
+class ChangeEndTimeProfileState extends ProfileState {
+  ChangeEndTimeProfileState({
+    super.selectedService,
+    required super.isEnabled,
+
     super.user,
     super.selectedDay,
     required super.enabledDay,

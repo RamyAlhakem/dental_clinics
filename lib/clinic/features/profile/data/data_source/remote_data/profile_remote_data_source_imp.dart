@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source.dart';
+import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
 
 class ProfileRemoteDataSourceImp implements ProfileRemoteDataSource {
@@ -39,6 +40,17 @@ class ProfileRemoteDataSourceImp implements ProfileRemoteDataSource {
     });
     await firebaseFirestore.collection(role).doc(docId).update({
       "services": FieldValue.arrayUnion([newService.toJson()]),
+    });
+  }
+
+  @override
+  Future<dynamic> saveDay({
+    required String role,
+    required String docId,
+    required ScheduleDaysModels scheduleDay,
+  }) async {
+    await firebaseFirestore.collection(role).doc(docId).update({
+      "schedule": scheduleDay.toJson(),
     });
   }
 }

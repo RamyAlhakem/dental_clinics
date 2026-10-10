@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
 
 abstract class ProfileRemoteDataSource {
@@ -6,6 +7,11 @@ abstract class ProfileRemoteDataSource {
     required String role,
     required String docId,
     required ServiceModel service,
+  });
+  Future saveDay({
+    required String role,
+    required String docId,
+    required ScheduleDaysModels scheduleDay,
   });
   Future editService({
     required String role,

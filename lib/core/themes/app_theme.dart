@@ -119,6 +119,35 @@ class AppTheme {
           ),
         ),
       ),
+      timePickerTheme: TimePickerThemeData(
+        backgroundColor: AppColors.backgroundColor,
+        dayPeriodColor: AppColors.lighterPrimaryColor,
+        dialBackgroundColor: AppColors.lighterPrimaryColor,
+        dialHandColor: AppColors.darkPrimary,
+        hourMinuteColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.primaryColor;
+          } else {
+            return AppColors.lighterPrimaryColor;
+          }
+        }),
+
+        hourMinuteTextColor: WidgetStateColor.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.whiteColor;
+          } else {
+            return AppColors.darkPrimary;
+          }
+        }),
+
+        timeSelectorSeparatorColor: WidgetStateProperty.all(
+          AppColors.darkPrimary,
+        ),
+        dayPeriodBorderSide: BorderSide(color: AppColors.darkPrimary),
+        entryModeIconColor: AppColors.darkPrimary,
+        dayPeriodTextColor: AppColors.darkPrimary,
+        helpTextStyle: TextStyle(color: AppColors.darkPrimary),
+      ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColors.whiteColor),
         trackColor: WidgetStateProperty.resolveWith((states) {
