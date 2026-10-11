@@ -9,7 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TimeBlockWidget extends StatelessWidget {
   final SlotEntities slot;
-  const TimeBlockWidget({super.key, required this.slot});
+
+  final VoidCallback? removeTap;
+  const TimeBlockWidget({super.key, required this.slot, this.removeTap});
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +41,14 @@ class TimeBlockWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                "Remove",
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyLarge!.copyWith(color: AppColors.redWineColor),
+              GestureDetector(
+                onTap: removeTap,
+                child: Text(
+                  "Remove",
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: AppColors.redWineColor,
+                  ),
+                ),
               ),
             ],
           ),

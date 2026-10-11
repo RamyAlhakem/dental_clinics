@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/extensions/day_extension.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
@@ -12,9 +13,13 @@ class TurnDayWidget extends StatelessWidget {
     return Card(
       color: AppColors.lighterPrimaryColor,
       child: ListTile(
-        title: Text(
-          "Open on Mondays",
-          style: Theme.of(context).textTheme.bodySmall,
+        title: BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return Text(
+              "Open on ${state.selectedDay!.getTitle(context)}",
+              style: Theme.of(context).textTheme.bodySmall,
+            );
+          },
         ),
         subtitle: Text(
           "Patients can book this day",
