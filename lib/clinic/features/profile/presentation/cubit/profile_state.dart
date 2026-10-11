@@ -7,12 +7,14 @@ class ProfileState {
   final AppointmentDuration? selectedDuration;
   final bool isEnabled;
   final bool enabledDay;
+  final bool applyAll;
 
   final UserEntitie? user;
   const ProfileState({
     this.selectedService,
     required this.isEnabled,
     required this.enabledDay,
+    required this.applyAll,
     required this.selectedDuration,
     this.user,
     this.selectedDay,
@@ -24,6 +26,7 @@ class ChangingSelectedServiceState extends ProfileState {
     super.selectedService,
     required super.isEnabled,
     required super.enabledDay,
+    required super.applyAll,
     super.user,
     super.selectedDay,
     required super.selectedDuration,
@@ -36,6 +39,7 @@ class ChangingSelectedDayState extends ProfileState {
     required super.isEnabled,
     super.user,
     super.selectedDay,
+    required super.applyAll,
     required super.enabledDay,
     required super.selectedDuration,
   });
@@ -47,6 +51,7 @@ class InitiSelectedServiceState extends ProfileState {
     required super.isEnabled,
     super.user,
     super.selectedDay,
+    required super.applyAll,
     required super.enabledDay,
     required super.selectedDuration,
   });
@@ -59,6 +64,7 @@ class LoadedUserInfoProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.applyAll,
     required super.selectedDuration,
   });
 }
@@ -68,6 +74,7 @@ class SuccessUserInfoProfileState extends ProfileState {
   SuccessUserInfoProfileState({
     super.selectedService,
     required super.isEnabled,
+    required super.applyAll,
     required this.msg,
     super.user,
 
@@ -85,6 +92,7 @@ class LoadingUserInfoProfileState extends ProfileState {
     super.selectedDay,
     required super.enabledDay,
     required super.selectedDuration,
+    required super.applyAll,
   });
 }
 
@@ -96,6 +104,7 @@ class FailedUserInfoProfileState extends ProfileState {
     required this.msg,
     super.user,
     super.selectedDay,
+    required super.applyAll,
     required super.enabledDay,
     required super.selectedDuration,
   });
@@ -105,6 +114,7 @@ class ChangeStartTimeProfileState extends ProfileState {
   ChangeStartTimeProfileState({
     super.selectedService,
     required super.isEnabled,
+    required super.applyAll,
 
     super.user,
     super.selectedDay,
@@ -117,7 +127,7 @@ class ChangeEndTimeProfileState extends ProfileState {
   ChangeEndTimeProfileState({
     super.selectedService,
     required super.isEnabled,
-
+    required super.applyAll,
     super.user,
     super.selectedDay,
     required super.enabledDay,
@@ -129,7 +139,19 @@ class ChangeDurationProfileState extends ProfileState {
   ChangeDurationProfileState({
     super.selectedService,
     required super.isEnabled,
+    required super.applyAll,
+    super.user,
+    super.selectedDay,
+    required super.enabledDay,
+    required super.selectedDuration,
+  });
+}
 
+class ChangingApplyDayProfileState extends ProfileState {
+  ChangingApplyDayProfileState({
+    super.selectedService,
+    required super.isEnabled,
+    required super.applyAll,
     super.user,
     super.selectedDay,
     required super.enabledDay,

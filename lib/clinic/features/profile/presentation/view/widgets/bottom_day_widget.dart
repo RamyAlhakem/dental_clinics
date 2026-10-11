@@ -36,34 +36,49 @@ class BottomDayWidget extends StatelessWidget {
                   appointmentDuration: state.selectedDuration!.label,
                 );
                 final currentday = state.selectedDay!.name;
-
-                context.read<ProfileCubit>().saveDay(
-                  role: role!.name,
-                  docId: state.user!.docId,
-                  scheduleDay: ScheduleDaysModels(
-                    monday: currentday == "monday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    tuesday: currentday == "tuesday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    wednesday: currentday == "wednesday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    thursday: currentday == "thursday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    friday: currentday == "friday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    saturday: currentday == "saturday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                    sunday: currentday == "sunday"
-                        ? daySchedule
-                        : DayScheduleEntities(),
-                  ),
-                );
+                if (state.applyAll) {
+                  context.read<ProfileCubit>().saveDay(
+                    role: role!.name,
+                    docId: state.user!.docId,
+                    scheduleDay: ScheduleDaysModels(
+                      monday: daySchedule,
+                      tuesday: daySchedule,
+                      wednesday: daySchedule,
+                      thursday: daySchedule,
+                      friday: daySchedule,
+                      saturday: daySchedule,
+                      sunday: daySchedule,
+                    ),
+                  );
+                } else {
+                  context.read<ProfileCubit>().saveDay(
+                    role: role!.name,
+                    docId: state.user!.docId,
+                    scheduleDay: ScheduleDaysModels(
+                      monday: currentday == "monday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      tuesday: currentday == "tuesday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      wednesday: currentday == "wednesday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      thursday: currentday == "thursday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      friday: currentday == "friday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      saturday: currentday == "saturday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                      sunday: currentday == "sunday"
+                          ? daySchedule
+                          : DayScheduleEntities(),
+                    ),
+                  );
+                }
               }
             },
           );
