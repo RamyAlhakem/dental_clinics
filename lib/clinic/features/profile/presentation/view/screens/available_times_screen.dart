@@ -8,6 +8,7 @@ import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
+import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,12 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.pushNamed(RouteNames.screenDay);
+          final state = context.read<ProfileCubit>().state;
+          if (state.selectedDay == null) {
+            AppSnackBar.showError(context, msg: "Please select day first");
+          } else {
+            context.pushNamed(RouteNames.screenDay);
+          }
         },
         child: SvgWidget(icon: "add"),
       ),
@@ -56,9 +62,9 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
                   .toList(),
             ),
             SizedBox(height: 20),
-            AppText(text: context.arb.selectAvailableTimes),
-            SizedBox(height: 10),
-            AppText(text: context.arb.morning),
+            // AppText(text: context.arb.selectAvailableTimes),
+            // SizedBox(height: 10),
+            // AppText(text: context.arb.morning),
             SizedBox(height: 10),
             Wrap(
               alignment: WrapAlignment.center,
@@ -73,35 +79,35 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
                 TimeWidget(time: "11:30 AM"),
               ],
             ),
-            SizedBox(height: 10),
-            AppText(text: context.arb.evening),
-            SizedBox(height: 10),
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 10,
-              runSpacing: 10,
-              children: [
-                TimeWidget(time: "12:00 PM"),
-                TimeWidget(time: "12:30 PM"),
-                TimeWidget(time: "1:00 PM"),
-                TimeWidget(time: "1:30 PM"),
-                TimeWidget(time: "2:00 PM"),
-                TimeWidget(time: "2:30 PM"),
-                TimeWidget(time: "3:00 PM"),
-                TimeWidget(time: "3:30 PM"),
-                TimeWidget(time: "4:00 PM"),
-                TimeWidget(time: "4:30 PM"),
-                TimeWidget(time: "5:00 PM"),
-                TimeWidget(time: "5:30 PM"),
-                TimeWidget(time: "6:00 PM"),
-                TimeWidget(time: "6:30 PM"),
-                TimeWidget(time: "7:00 PM"),
-                TimeWidget(time: "7:30 PM"),
-                TimeWidget(time: "8:00 PM"),
-                TimeWidget(time: "8:30 PM"),
-                TimeWidget(time: "9:00 PM"),
-              ],
-            ),
+            // SizedBox(height: 10),
+            // AppText(text: context.arb.evening),
+            // SizedBox(height: 10),
+            // Wrap(
+            //   alignment: WrapAlignment.center,
+            //   spacing: 10,
+            //   runSpacing: 10,
+            //   children: [
+            //     TimeWidget(time: "12:00 PM"),
+            //     TimeWidget(time: "12:30 PM"),
+            //     TimeWidget(time: "1:00 PM"),
+            //     TimeWidget(time: "1:30 PM"),
+            //     TimeWidget(time: "2:00 PM"),
+            //     TimeWidget(time: "2:30 PM"),
+            //     TimeWidget(time: "3:00 PM"),
+            //     TimeWidget(time: "3:30 PM"),
+            //     TimeWidget(time: "4:00 PM"),
+            //     TimeWidget(time: "4:30 PM"),
+            //     TimeWidget(time: "5:00 PM"),
+            //     TimeWidget(time: "5:30 PM"),
+            //     TimeWidget(time: "6:00 PM"),
+            //     TimeWidget(time: "6:30 PM"),
+            //     TimeWidget(time: "7:00 PM"),
+            //     TimeWidget(time: "7:30 PM"),
+            //     TimeWidget(time: "8:00 PM"),
+            //     TimeWidget(time: "8:30 PM"),
+            //     TimeWidget(time: "9:00 PM"),
+            //   ],
+            // ),
           ],
         ),
       ),
