@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/data/data_source/local_data/profile_local_data_source_imp.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/slot_model.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/day_schedule_entities.dart';
@@ -90,13 +91,10 @@ class _ScreenDayState extends State<ScreenDay> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 15,
-              children: [
-                DurationTimeWidget(),
-                DurationTimeWidget(),
-                DurationTimeWidget(),
-                DurationTimeWidget(),
-                DurationTimeWidget(),
-              ],
+              children: ProfileLocalDataSourceIml()
+                  .getStaticDurations()
+                  .map((duration) => DurationTimeWidget(duration: duration))
+                  .toList(),
             ),
             SizedBox(height: 30),
             ApplyWidget(),

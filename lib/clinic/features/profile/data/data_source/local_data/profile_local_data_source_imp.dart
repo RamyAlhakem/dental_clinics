@@ -11,4 +11,9 @@ class ProfileLocalDataSourceIml implements ProfileLocalDataSourse {
   List<WeekDays> getStaticWeekDays() {
     return WeekDays.values;
   }
+
+  @override
+  List<AppointmentDuration> getStaticDurations() {
+    return AppointmentDuration.values;
+  }
 }

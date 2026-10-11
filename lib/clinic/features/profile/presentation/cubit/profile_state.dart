@@ -1,10 +1,10 @@
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/entities/user_entitie.dart';
-import 'package:flutter/material.dart';
 
 class ProfileState {
   final ServiceType? selectedService;
   final WeekDays? selectedDay;
+  final AppointmentDuration? selectedDuration;
   final bool isEnabled;
   final bool enabledDay;
 
@@ -13,6 +13,7 @@ class ProfileState {
     this.selectedService,
     required this.isEnabled,
     required this.enabledDay,
+    required this.selectedDuration,
     this.user,
     this.selectedDay,
   });
@@ -25,6 +26,7 @@ class ChangingSelectedServiceState extends ProfileState {
     required super.enabledDay,
     super.user,
     super.selectedDay,
+    required super.selectedDuration,
   });
 }
 
@@ -35,6 +37,7 @@ class ChangingSelectedDayState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -45,6 +48,7 @@ class InitiSelectedServiceState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -55,6 +59,7 @@ class LoadedUserInfoProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -68,6 +73,7 @@ class SuccessUserInfoProfileState extends ProfileState {
 
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -78,6 +84,7 @@ class LoadingUserInfoProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -90,6 +97,7 @@ class FailedUserInfoProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -101,6 +109,7 @@ class ChangeStartTimeProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
   });
 }
 
@@ -112,5 +121,18 @@ class ChangeEndTimeProfileState extends ProfileState {
     super.user,
     super.selectedDay,
     required super.enabledDay,
+    required super.selectedDuration,
+  });
+}
+
+class ChangeDurationProfileState extends ProfileState {
+  ChangeDurationProfileState({
+    super.selectedService,
+    required super.isEnabled,
+
+    super.user,
+    super.selectedDay,
+    required super.enabledDay,
+    required super.selectedDuration,
   });
 }

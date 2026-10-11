@@ -3,7 +3,6 @@ import 'package:dental_clinics_app/clinic/features/profile/data/models/service_m
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -16,6 +15,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           enabledDay: false,
           user: null,
           selectedDay: null,
+          selectedDuration: AppointmentDuration.thirtyMinutes,
         ),
       );
   selectService(ServiceType service) {
@@ -26,6 +26,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         enabledDay: state.enabledDay,
         user: state.user,
         selectedDay: state.selectedDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -38,6 +39,20 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: day,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
+      ),
+    );
+  }
+
+  selectDuration(AppointmentDuration duration) {
+    emit(
+      ChangeDurationProfileState(
+        selectedService: state.selectedService,
+        isEnabled: state.isEnabled,
+        user: state.user,
+        selectedDay: state.selectedDay,
+        enabledDay: state.enabledDay,
+        selectedDuration: duration,
       ),
     );
   }
@@ -50,6 +65,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedDay: state.selectedDay,
         selectedService: state.selectedService,
         user: state.user,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -62,6 +78,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedDay: state.selectedDay,
         selectedService: state.selectedService,
         user: state.user,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -74,6 +91,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: state.selectedDay,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -86,6 +104,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: state.selectedDay,
         enabledDay: val,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -98,6 +117,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: state.selectedDay,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -110,6 +130,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: state.selectedDay,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
   }
@@ -122,6 +143,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         user: state.user,
         selectedDay: state.selectedDay,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
     final result = await profileUseCase.getInfoUseCase.call(
@@ -135,6 +157,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           selectedService: state.selectedService,
           user: result.data!,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     } else {
@@ -146,6 +169,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           user: state.user,
           selectedDay: state.selectedDay,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     }
@@ -162,6 +186,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedService: state.selectedService,
         user: state.user,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
     final result = await profileUseCase.addNewServiceUseCase.call(
@@ -177,6 +202,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.data!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     } else {
@@ -187,6 +213,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.msg!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     }
@@ -203,6 +230,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedService: state.selectedService,
         user: state.user,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
     final result = await profileUseCase.saveDayUseCase.call(
@@ -218,6 +246,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.data!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     } else {
@@ -228,6 +257,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.msg!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     }
@@ -245,6 +275,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedService: state.selectedService,
         user: state.user,
         enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
       ),
     );
     final result = await profileUseCase.editServiceUseCase.call(
@@ -261,6 +292,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.data!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     } else {
@@ -271,6 +303,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           msg: result.msg!,
           user: state.user,
           enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
         ),
       );
     }

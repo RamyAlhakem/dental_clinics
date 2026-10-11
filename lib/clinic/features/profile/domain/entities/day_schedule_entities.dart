@@ -2,6 +2,11 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/entities/slot_
 
 class DayScheduleEntities {
   final bool isEnabled;
+  final String appointmentDuration;
   final List<SlotEntities> slots;
-  const DayScheduleEntities({this.isEnabled = false, this.slots = const []});
+  const DayScheduleEntities({
+    this.isEnabled = false,
+    this.slots = const [],
+    this.appointmentDuration = "15m",
+  });
 }
