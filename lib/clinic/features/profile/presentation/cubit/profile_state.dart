@@ -84,6 +84,21 @@ class SuccessUserInfoProfileState extends ProfileState {
   });
 }
 
+class SuccessDayProfileState extends ProfileState {
+  final String msg;
+  SuccessDayProfileState({
+    super.selectedService,
+    required super.isEnabled,
+    required super.applyAll,
+    required this.msg,
+    super.user,
+
+    super.selectedDay,
+    required super.enabledDay,
+    required super.selectedDuration,
+  });
+}
+
 class LoadingUserInfoProfileState extends ProfileState {
   LoadingUserInfoProfileState({
     super.selectedService,

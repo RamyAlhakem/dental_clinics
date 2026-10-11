@@ -276,7 +276,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
     if (result.data != null) {
       emit(
-        SuccessUserInfoProfileState(
+        SuccessDayProfileState(
           isEnabled: state.isEnabled,
           selectedService: state.selectedService,
           msg: result.data!,
