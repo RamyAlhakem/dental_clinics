@@ -8,6 +8,7 @@ class SaveDayUseCase {
   Future<AppResult<String>> call({
     required String role,
     required String docId,
+
     required ScheduleDaysModels scheduleDay,
   }) async {
     return await repository.saveDay(

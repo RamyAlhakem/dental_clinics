@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/schedule_days_entities.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 
 class UserEntitie {
@@ -7,6 +8,7 @@ class UserEntitie {
   final String name;
   final String phone;
   final List<ServiceEntities> services;
+  final ScheduleDaysEntites schedule;
   const UserEntitie({
     this.email = "",
     this.phone = "",
@@ -14,5 +16,6 @@ class UserEntitie {
     this.id = "",
     this.docId = "",
     this.services = const [],
+    this.schedule = const ScheduleDaysEntites(),
   });
 }

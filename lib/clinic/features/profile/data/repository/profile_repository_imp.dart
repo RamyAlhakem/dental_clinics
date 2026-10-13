@@ -1,4 +1,5 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source.dart';
+import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/repository/profile_repository.dart';
@@ -86,6 +87,28 @@ class ProfileRepositoryImp implements ProfileRepository {
         role: role,
         docId: docId,
         scheduleDay: scheduleDay,
+      );
+      return AppResult.success("Saved successfully");
+    } on FirebaseException catch (e) {
+      return AppResult.failure("Firebase exception ");
+    } catch (e) {
+      return AppResult.failure("Unknown error ");
+    }
+  }
+
+  @override
+  Future<AppResult<String>> saveSingleDay({
+    required String role,
+    required String docId,
+    required String dayKey,
+    required DayScheduleModels day,
+  }) async {
+    try {
+      await profileRemoteDataSource.saveSingleDay(
+        role: role,
+        docId: docId,
+        day: day,
+        dayKey: dayKey,
       );
       return AppResult.success("Saved successfully");
     } on FirebaseException catch (e) {

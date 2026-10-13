@@ -7,6 +7,7 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/edit
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/get_info_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_day_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_single_day_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/data/data_source/remote_date/auth_remote_data_source_impl.dart';
 import 'package:dental_clinics_app/core/features/auth/data/repository/auth_repository_impl.dart';
@@ -80,6 +81,13 @@ class _DentalClinicsState extends State<DentalClinics> {
                 ),
               ),
               saveDayUseCase: SaveDayUseCase(
+                repository: ProfileRepositoryImp(
+                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+              saveSingleDayUseCase: SaveSingleDayUseCase(
                 repository: ProfileRepositoryImp(
                   profileRemoteDataSource: ProfileRemoteDataSourceImp(
                     firebaseFirestore: FirebaseFirestore.instance,

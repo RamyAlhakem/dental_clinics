@@ -7,6 +7,7 @@ import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,12 @@ class AvailableTimesScreen extends StatefulWidget {
 }
 
 class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
+  @override
+  void initState() {
+    context.getInfo();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +71,7 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
             SizedBox(height: 20),
             // AppText(text: context.arb.selectAvailableTimes),
             // SizedBox(height: 10),
-            // AppText(text: context.arb.morning),
+            AppText(text: context.arb.morning),
             SizedBox(height: 10),
             Wrap(
               alignment: WrapAlignment.center,

@@ -2,16 +2,20 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/add_
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/edit_service_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/get_info_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_day_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_single_day_use_case.dart';
 
 class ProfileUseCase {
   final GetInfoUseCase getInfoUseCase;
   final AddNewServiceUseCase addNewServiceUseCase;
   final EditServiceUseCase editServiceUseCase;
   final SaveDayUseCase saveDayUseCase;
+  final SaveSingleDayUseCase saveSingleDayUseCase;
+
   ProfileUseCase({
     required this.getInfoUseCase,
     required this.addNewServiceUseCase,
     required this.editServiceUseCase,
     required this.saveDayUseCase,
+    required this.saveSingleDayUseCase,
   });
 }

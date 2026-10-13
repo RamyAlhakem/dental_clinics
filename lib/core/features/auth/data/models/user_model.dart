@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/entities/user_entitie.dart';
 
@@ -11,6 +12,7 @@ class UserModel extends UserEntitie {
     super.id,
     super.docId,
     super.services,
+    super.schedule,
     this.password = "",
     this.newPassword = "",
   });
@@ -26,6 +28,7 @@ class UserModel extends UserEntitie {
                 .map((service) => ServiceModel.fromJson(service))
                 .toList()
           : [],
+      schedule: ScheduleDaysModels.fromJson(json['schedule']),
       password: json['password'] as String? ?? "",
       newPassword: json['newPassword'] as String? ?? "",
     );

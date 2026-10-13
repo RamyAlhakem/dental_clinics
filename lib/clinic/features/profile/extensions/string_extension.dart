@@ -44,4 +44,19 @@ extension StringExtension on String {
         return ServiceType.preventive;
     }
   }
+
+  AppointmentDuration getDuration() {
+    switch (this) {
+      case "15min":
+        return AppointmentDuration.fifteenMinutes;
+      case "30min":
+        return AppointmentDuration.thirtyMinutes;
+      case "40min":
+        return AppointmentDuration.fortyMinutes;
+      case "60min":
+        return AppointmentDuration.sixtyMinutes;
+      default:
+        return AppointmentDuration.thirtyMinutes;
+    }
+  }
 }

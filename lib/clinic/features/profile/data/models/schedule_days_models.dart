@@ -1,4 +1,5 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/day_schedule_entities.dart';
 
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/schedule_days_entities.dart';
 
@@ -14,13 +15,27 @@ class ScheduleDaysModels extends ScheduleDaysEntites {
   });
   factory ScheduleDaysModels.fromJson(Map<String, dynamic> json) {
     return ScheduleDaysModels(
-      monday: DayScheduleModels.fromJson(json["monday"]),
-      tuesday: DayScheduleModels.fromJson(json["tuesday"]),
-      wednesday: DayScheduleModels.fromJson(json["wednesday"]),
-      thursday: DayScheduleModels.fromJson(json["thursday"]),
-      friday: DayScheduleModels.fromJson(json["friday"]),
-      saturday: DayScheduleModels.fromJson(json["saturday"]),
-      sunday: DayScheduleModels.fromJson(json["sunday"]),
+      monday: json["monday"] != null
+          ? DayScheduleModels.fromJson(json["monday"])
+          : const DayScheduleEntities(),
+      tuesday: json["tuesday"] != null
+          ? DayScheduleModels.fromJson(json["tuesday"])
+          : const DayScheduleEntities(),
+      wednesday: json["wednesday"] != null
+          ? DayScheduleModels.fromJson(json["wednesday"])
+          : const DayScheduleEntities(),
+      thursday: json["thursday"] != null
+          ? DayScheduleModels.fromJson(json["thursday"])
+          : const DayScheduleEntities(),
+      friday: json["friday"] != null
+          ? DayScheduleModels.fromJson(json["friday"])
+          : const DayScheduleEntities(),
+      saturday: json["saturday"] != null
+          ? DayScheduleModels.fromJson(json["saturday"])
+          : const DayScheduleEntities(),
+      sunday: json["sunday"] != null
+          ? DayScheduleModels.fromJson(json["sunday"])
+          : const DayScheduleEntities(),
     );
   }
 

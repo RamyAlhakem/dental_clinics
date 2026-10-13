@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
 import 'package:dental_clinics_app/core/errors/app_result.dart';
@@ -16,7 +17,14 @@ abstract class ProfileRepository {
   Future<AppResult<String>> saveDay({
     required String role,
     required String docId,
+
     required ScheduleDaysModels scheduleDay,
+  });
+  Future<AppResult<String>> saveSingleDay({
+    required String role,
+    required String docId,
+    required String dayKey,
+    required DayScheduleModels day,
   });
   Future<AppResult<String>> editService({
     required String role,

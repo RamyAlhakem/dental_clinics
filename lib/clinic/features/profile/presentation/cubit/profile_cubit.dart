@@ -1,7 +1,10 @@
+import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/service_model.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/day_schedule_entities.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/profile/extensions/string_extension.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -98,6 +101,20 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedService: state.selectedService,
         user: state.user,
         selectedDuration: state.selectedDuration,
+        applyAll: state.applyAll,
+      ),
+    );
+  }
+
+  setDay(DayScheduleEntities schedule) {
+    emit(
+      ChangeEndTimeProfileState(
+        isEnabled: state.isEnabled,
+        enabledDay: schedule.isEnabled,
+        selectedDay: state.selectedDay,
+        selectedService: state.selectedService,
+        user: state.user,
+        selectedDuration: schedule.appointmentDuration.getDuration(),
         applyAll: state.applyAll,
       ),
     );
@@ -256,6 +273,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   saveDay({
     required String role,
     required String docId,
+
     required ScheduleDaysModels scheduleDay,
   }) async {
     emit(
@@ -273,6 +291,58 @@ class ProfileCubit extends Cubit<ProfileState> {
       role: role,
       docId: docId,
       scheduleDay: scheduleDay,
+    );
+    if (result.data != null) {
+      emit(
+        SuccessDayProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          msg: result.data!,
+          user: state.user,
+          enabledDay: state.enabledDay,
+          selectedDay: state.selectedDay,
+          selectedDuration: state.selectedDuration,
+          applyAll: state.applyAll,
+        ),
+      );
+    } else {
+      emit(
+        FailedUserInfoProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          msg: result.msg!,
+          user: state.user,
+          enabledDay: state.enabledDay,
+          selectedDay: state.selectedDay,
+          selectedDuration: state.selectedDuration,
+          applyAll: state.applyAll,
+        ),
+      );
+    }
+  }
+
+  saveSingleDay({
+    required String role,
+    required String docId,
+    required String dayKey,
+    required DayScheduleModels day,
+  }) async {
+    emit(
+      LoadingUserInfoProfileState(
+        isEnabled: state.isEnabled,
+        selectedService: state.selectedService,
+        user: state.user,
+        enabledDay: state.enabledDay,
+        selectedDay: state.selectedDay,
+        selectedDuration: state.selectedDuration,
+        applyAll: state.applyAll,
+      ),
+    );
+    final result = await profileUseCase.saveSingleDayUseCase.call(
+      role: role,
+      docId: docId,
+      day: day,
+      dayKey: dayKey,
     );
     if (result.data != null) {
       emit(
