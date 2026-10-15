@@ -36,7 +36,11 @@ class ProfileCubit extends Cubit<ProfileState> {
     );
   }
 
-  selectDay(WeekDays day) {
+  selectDay(
+    WeekDays day, {
+    required String role,
+    required String userId,
+  }) async {
     emit(
       ChangingSelectedDayState(
         selectedService: state.selectedService,
@@ -48,6 +52,61 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedDuration: state.selectedDuration,
       ),
     );
+    emit(
+      LoadingUserInfoProfileState(
+        selectedService: state.selectedService,
+        isEnabled: state.isEnabled,
+        user: state.user,
+        selectedDay: day,
+        applyAll: state.applyAll,
+        enabledDay: state.enabledDay,
+        selectedDuration: state.selectedDuration,
+      ),
+    );
+    final result = await profileUseCase.getInfoUseCase.call(
+      role: role,
+      userId: userId,
+    );
+    if (result.data != null) {
+      emit(
+        LoadedUserInfoProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+
+          user: result.data!,
+          enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
+          selectedDay: state.selectedDay,
+          applyAll: state.applyAll,
+        ),
+      );
+      emit(
+        LoadedDayUserInfoProfileState(
+          day: _getScheduleDay(),
+          shifts: _getScheduleDay().slots,
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          user: result.data!,
+          enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
+          selectedDay: state.selectedDay,
+          applyAll: state.applyAll,
+        ),
+      );
+    } else {
+      emit(
+        FailedUserInfoProfileState(
+          isEnabled: state.isEnabled,
+          selectedService: state.selectedService,
+          msg: result.msg!,
+          user: state.user,
+          enabledDay: state.enabledDay,
+          selectedDuration: state.selectedDuration,
+          selectedDay: state.selectedDay,
+          applyAll: state.applyAll,
+        ),
+      );
+    }
   }
 
   setApplyAll(bool val) {
@@ -422,6 +481,28 @@ class ProfileCubit extends Cubit<ProfileState> {
           applyAll: state.applyAll,
         ),
       );
+    }
+  }
+
+  DayScheduleEntities _getScheduleDay() {
+    final schedule = state.user!.schedule;
+    switch (state.selectedDay) {
+      case WeekDays.monday:
+        return schedule.monday;
+      case WeekDays.tuesday:
+        return schedule.tuesday;
+      case WeekDays.wednesday:
+        return schedule.wednesday;
+      case WeekDays.thursday:
+        return schedule.thursday;
+      case WeekDays.friday:
+        return schedule.friday;
+      case WeekDays.saturday:
+        return schedule.saturday;
+      case WeekDays.sunday:
+        return schedule.sunday;
+      default:
+        return schedule.monday;
     }
   }
 }

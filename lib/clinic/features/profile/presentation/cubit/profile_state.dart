@@ -1,4 +1,6 @@
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/day_schedule_entities.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
+import 'package:dental_clinics_app/clinic/features/profile/domain/entities/slot_entities.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/entities/user_entitie.dart';
 
 class ProfileState {
@@ -108,6 +110,22 @@ class LoadingUserInfoProfileState extends ProfileState {
     required super.enabledDay,
     required super.selectedDuration,
     required super.applyAll,
+  });
+}
+
+class LoadedDayUserInfoProfileState extends ProfileState {
+  final DayScheduleEntities day;
+  final List<SlotEntities> shifts;
+  LoadedDayUserInfoProfileState({
+    super.selectedService,
+    required super.isEnabled,
+    super.user,
+    super.selectedDay,
+    required super.enabledDay,
+    required super.selectedDuration,
+    required super.applyAll,
+    required this.day,
+    required this.shifts,
   });
 }
 

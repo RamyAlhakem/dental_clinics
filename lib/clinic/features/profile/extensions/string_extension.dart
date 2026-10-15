@@ -59,4 +59,23 @@ extension StringExtension on String {
         return AppointmentDuration.thirtyMinutes;
     }
   }
+
+  int timeToMints() {
+    final startTimeString = trim().toUpperCase();
+    final isPm = startTimeString.contains("PM");
+    final clearStartTime = startTimeString.replaceAll(RegExp(r'[^0-9:]'), "");
+    final parts = clearStartTime.split(":");
+    int hours = 0;
+    if (isPm && int.parse(parts[0]) == 12) {
+      hours = int.parse(parts[0]);
+    } else if (isPm && int.parse(parts[0]) != 12) {
+      hours = int.parse(parts[0]) + 12;
+    } else {
+      hours = int.parse(parts[0]);
+    }
+
+    final min = int.parse(parts[1]);
+    final currentTime = hours * 60 + min;
+    return currentTime;
+  }
 }
