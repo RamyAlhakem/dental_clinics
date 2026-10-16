@@ -98,10 +98,11 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
                     ),
                   );
                 } else if (state is LoadedDayUserInfoProfileState) {
-                  return ListView.builder(
+                  return ListView.separated(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: state.shifts.length,
+                    separatorBuilder: (context, i) => SizedBox(height: 10),
                     itemBuilder: (context, i) {
                       return ShiftWidget(
                         shift: state.shifts[i],
