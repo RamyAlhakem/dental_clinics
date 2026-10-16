@@ -9,4 +9,5 @@ class RouteNames {
   static const String services = "services";
   static const String addNewService = "add new service";
   static const String screenDay = "screen day";
+  static const String languageScreen = "language screen";
 }

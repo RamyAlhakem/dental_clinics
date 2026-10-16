@@ -28,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             icon: "person_edit",
           ),
           ListTileProfile(
-            onTap: () {},
+            onTap: () => context.pushNamed(RouteNames.languageScreen),
             title: context.arb.language,
             icon: "language",
           ),
