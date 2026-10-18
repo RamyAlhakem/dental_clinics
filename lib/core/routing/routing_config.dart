@@ -3,6 +3,7 @@ import 'package:dental_clinics_app/clinic/features/home/presentation/view/screen
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/add_new_service_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/available_times_screen.dart';
+import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/contact_support_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/edit_profile_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/language_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/screen_day.dart';
@@ -72,6 +73,11 @@ class RoutingConfig {
         name: RouteNames.languageScreen,
         path: "/languageScreen",
         builder: (context, state) => LanguageScreen(),
+      ),
+      GoRoute(
+        name: RouteNames.contactSupportScreen,
+        path: "/contactSupportScreen",
+        builder: (context, state) => ContactSupportScreen(),
       ),
     ],
   );

@@ -5,7 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppText extends StatelessWidget {
   final String text;
-  const AppText({super.key, required this.text});
+  final double fontSize;
+  final FontWeight fontWeight;
+  const AppText({
+    super.key,
+    required this.text,
+    this.fontSize = 16,
+    this.fontWeight = FontWeight.bold,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +21,13 @@ class AppText extends StatelessWidget {
         final isArabic = state.selectedLang.languageCode == "ar";
         return Container(
           alignment: isArabic ? Alignment.centerRight : Alignment.centerLeft,
-          child: Text(text, style: Theme.of(context).textTheme.bodySmall),
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+            ),
+          ),
         );
       },
     );

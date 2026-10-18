@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             icon: "medical_services",
           ),
           ListTileProfile(
-            onTap: () {},
+            onTap: () => context.pushNamed(RouteNames.contactSupportScreen),
             title: context.arb.contactSupportTeam,
             icon: "help",
           ),
