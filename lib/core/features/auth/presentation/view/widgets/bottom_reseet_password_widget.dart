@@ -43,14 +43,20 @@ class BottomResetPasswordWidget extends StatelessWidget {
                   width: context.screenWidth / 2.5,
                   text: context.arb.resetPassword,
                   onTap: () {
+                    final reg = RegExp(r"^[\w-\.]+@[\w]+[\.][\w]{3}$");
                     if (email.text.isEmpty) {
                       AppSnackBar.showError(
                         context,
                         msg: context.arb.pleaseEnterYourEmailFirst,
                       );
-                    } else {
+                    } else if (reg.hasMatch(email.text)) {
                       context.read<AuthCubit>().resetPassword(
                         email: email.text,
+                      );
+                    } else {
+                      AppSnackBar.showError(
+                        context,
+                        msg: "Email is not correct",
                       );
                     }
                   },
