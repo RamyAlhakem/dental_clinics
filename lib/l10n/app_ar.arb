@@ -96,5 +96,7 @@
   "orthodontics": "تقويم الأسنان",
   "endodontics": "علاج الجذور",
   "cosmeticDentistry": "طب الأسنان التجميلي",
-  "pediatricDentistry": "طب أسنان الأطفال"
+  "pediatricDentistry": "طب أسنان الأطفال",
+  "resetPassword": " تغيير كلمة السر",
+  "openEmailApp": "فتح تطبيق البريد"
 }

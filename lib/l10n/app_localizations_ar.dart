@@ -303,4 +303,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pediatricDentistry => 'طب أسنان الأطفال';
+
+  @override
+  String get resetPassword => ' تغيير كلمة السر';
+
+  @override
+  String get openEmailApp => 'فتح تطبيق البريد';
 }

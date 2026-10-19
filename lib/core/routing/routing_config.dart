@@ -8,6 +8,7 @@ import 'package:dental_clinics_app/clinic/features/profile/presentation/view/scr
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/language_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/screen_day.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/services_screen.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/view/screens/reset_password.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/screens/sign_in_screen.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/screens/sign_up_screen.dart';
 import 'package:dental_clinics_app/core/features/onboarding/presentation/view/screens/onboarding_screen.dart';
@@ -78,6 +79,11 @@ class RoutingConfig {
         name: RouteNames.contactSupportScreen,
         path: "/contactSupportScreen",
         builder: (context, state) => ContactSupportScreen(),
+      ),
+      GoRoute(
+        name: RouteNames.resetPassword,
+        path: "/resetPassword",
+        builder: (context, state) => ResetPasswordScreen(),
       ),
     ],
   );

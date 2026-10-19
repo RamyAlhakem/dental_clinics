@@ -670,6 +670,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pediatric Dentistry'**
   String get pediatricDentistry;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get resetPassword;
+
+  /// No description provided for @openEmailApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Email App'**
+  String get openEmailApp;
 }
 
 class _AppLocalizationsDelegate

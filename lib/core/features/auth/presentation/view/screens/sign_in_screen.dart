@@ -6,12 +6,14 @@ import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cu
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_in_widget.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_widget.dart';
+import 'package:dental_clinics_app/core/helper/helper.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -73,8 +75,12 @@ class _SignInScreenState extends State<SignInScreen> {
               context,
               title: context.arb.passwordResetLinkSent,
               subTitle: context.arb.weHaveSentPasswordResetLink,
-              textBtn: context.arb.done,
-              onPressed: () => context.pop(),
+              textBtn: context.arb.openEmailApp,
+              onPressed: () {
+                Helper.launch(Uri.parse("https://mail.google.com/"));
+
+                context.goNamed(RouteNames.signIn);
+              },
             );
           } else if (state is AuthFailedResetPasswordState) {
             AppSnackBar.showError(context, msg: state.msg);

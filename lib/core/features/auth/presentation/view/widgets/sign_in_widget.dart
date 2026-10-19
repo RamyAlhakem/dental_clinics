@@ -3,9 +3,11 @@ import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/forgot_password_widget.dart';
+import 'package:dental_clinics_app/core/routing/route_names.dart';
 import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInWidget extends StatelessWidget {
   final TextEditingController email;
@@ -57,14 +59,15 @@ class SignInWidget extends StatelessWidget {
           ForgotPasswordWidget(
             text: context.arb.forgotPassword,
             onTap: () {
-              if (email.text.isEmpty) {
-                AppSnackBar.showError(
-                  context,
-                  msg: context.arb.pleaseEnterYourEmailFirst,
-                );
-              } else {
-                context.read<AuthCubit>().resetPassword(email: email.text);
-              }
+              context.pushNamed(RouteNames.resetPassword);
+              // if (email.text.isEmpty) {
+              //   AppSnackBar.showError(
+              //     context,
+              //     msg: context.arb.pleaseEnterYourEmailFirst,
+              //   );
+              // } else {
+              //   context.read<AuthCubit>().resetPassword(email: email.text);
+              // }
             },
           ),
         ],

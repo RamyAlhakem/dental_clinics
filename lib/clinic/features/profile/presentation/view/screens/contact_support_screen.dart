@@ -4,6 +4,7 @@ import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/svg_widget.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/global/global_services.dart';
+import 'package:dental_clinics_app/core/helper/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,7 +36,7 @@ class _ContactSupportScreenState extends State<ContactSupportScreen> {
               title: "ramyalhakem9@gmail.com",
               icon: "mail",
               onTap: () {
-                launchUrl(
+                Helper.launch(
                   Uri(scheme: "mailto", path: "ramyalhakem9@gmail.com"),
                 );
               },
@@ -45,7 +46,7 @@ class _ContactSupportScreenState extends State<ContactSupportScreen> {
               title: "+60 182253469",
               icon: "WhatsappLogo",
               onTap: () {
-                launchUrl(
+                Helper.launch(
                   Uri.parse(
                     "https://wa.me/60182253469?text=Hello,I would like to inquire about the clinic booking app",
                   ),

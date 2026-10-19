@@ -304,4 +304,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pediatricDentistry => 'Pediatric Dentistry';
+
+  @override
+  String get resetPassword => 'Reset password';
+
+  @override
+  String get openEmailApp => 'Open Email App';
 }
