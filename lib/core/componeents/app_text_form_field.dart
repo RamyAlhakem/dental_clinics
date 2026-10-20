@@ -8,6 +8,7 @@ class AppTextFormField extends StatelessWidget {
   final String icon;
   final String? suffixIcon;
   final bool obscureText;
+  final VoidCallback? onTap;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   const AppTextFormField({
@@ -19,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.obscureText = false,
+    this.onTap,
   });
 
   @override
@@ -32,7 +34,14 @@ class AppTextFormField extends StatelessWidget {
         labelText: labelText,
         prefixIcon: SvgWidget(icon: icon, horizontal: 10, vertical: 10),
         suffixIcon: suffixIcon != null
-            ? SvgWidget(icon: suffixIcon!, horizontal: 10, vertical: 10)
+            ? GestureDetector(
+                onTap: onTap,
+                child: SvgWidget(
+                  icon: suffixIcon!,
+                  horizontal: 10,
+                  vertical: 10,
+                ),
+              )
             : null,
       ),
     );

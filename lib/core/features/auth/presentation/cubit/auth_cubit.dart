@@ -5,37 +5,44 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthUseCase authUseCase;
-  AuthCubit({required this.authUseCase}) : super(AuthInitialState());
+  AuthCubit({required this.authUseCase})
+    : super(AuthInitialState(isHide: true));
   signUp({required UserModel user, required String role}) async {
-    emit(AuthLoadingState());
+    emit(AuthLoadingState(isHide: state.isHide));
     final result = await authUseCase.signUpUseCase.call(user: user, role: role);
     if (result.data != null) {
-      emit(AuthSuccessState(user: result.data!));
+      emit(AuthSuccessState(user: result.data!, isHide: state.isHide));
     } else {
-      emit(AuthFailedState(msg: result.msg!));
+      emit(AuthFailedState(msg: result.msg!, isHide: state.isHide));
     }
   }
 
   signIn({required String email, required String password}) async {
-    emit(AuthLoadingState());
+    emit(AuthLoadingState(isHide: state.isHide));
     final result = await authUseCase.signInUseCase.call(
       email: email,
       password: password,
     );
     if (result.data != null) {
-      emit(AuthSuccessState(user: result.data!));
+      emit(AuthSuccessState(user: result.data!, isHide: state.isHide));
     } else {
-      emit(AuthFailedState(msg: result.msg!));
+      emit(AuthFailedState(msg: result.msg!, isHide: state.isHide));
     }
   }
 
   resetPassword({required String email}) async {
-    emit(AuthLoadingState());
+    emit(AuthLoadingState(isHide: state.isHide));
     final result = await authUseCase.resetPasswordUseCase.call(email: email);
     if (result.data != null) {
-      emit(AuthSuccessResetPasswordState());
+      emit(AuthSuccessResetPasswordState(isHide: state.isHide));
     } else {
-      emit(AuthFailedResetPasswordState(msg: result.msg!));
+      emit(
+        AuthFailedResetPasswordState(msg: result.msg!, isHide: state.isHide),
+      );
     }
+  }
+
+  changeShowPass(bool val) {
+    emit(AuthChangingIsHidestate(isHide: val));
   }
 }

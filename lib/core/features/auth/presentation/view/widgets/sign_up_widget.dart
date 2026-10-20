@@ -1,7 +1,10 @@
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpWidget extends StatelessWidget {
   final TextEditingController clinicName;
@@ -73,35 +76,51 @@ class SignUpWidget extends StatelessWidget {
           SizedBox(height: 20),
           AppText(text: context.arb.password),
           SizedBox(height: 5),
-          AppTextFormField(
-            obscureText: true,
-            validator: (val) {
-              if (val!.isEmpty) {
-                return "Invalid input";
-              }
-              return null;
+          BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, state) {
+              return AppTextFormField(
+                onTap: () {
+                  context.read<AuthCubit>().changeShowPass(!state.isHide);
+                },
+                obscureText: state.isHide,
+                suffixIcon: state.isHide ? "visibility_off" : "visibility",
+                validator: (val) {
+                  if (val!.isEmpty) {
+                    return "Invalid input";
+                  }
+                  return null;
+                },
+                controller: password,
+                hintText: context.arb.password,
+                labelText: context.arb.enterYourPassword,
+                icon: "lock",
+              );
             },
-            controller: password,
-            hintText: context.arb.password,
-            labelText: context.arb.enterYourPassword,
-            icon: "lock",
           ),
 
           SizedBox(height: 20),
           AppText(text: context.arb.confirmPassword),
           SizedBox(height: 5),
-          AppTextFormField(
-            obscureText: true,
-            validator: (val) {
-              if (val!.isEmpty) {
-                return "Invalid input";
-              }
-              return null;
+          BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, state) {
+              return AppTextFormField(
+                onTap: () {
+                  context.read<AuthCubit>().changeShowPass(!state.isHide);
+                },
+                obscureText: state.isHide,
+                suffixIcon: state.isHide ? "visibility_off" : "visibility",
+                validator: (val) {
+                  if (val!.isEmpty) {
+                    return "Invalid input";
+                  }
+                  return null;
+                },
+                controller: newPassword,
+                hintText: context.arb.confirmPassword,
+                labelText: context.arb.confirmYourPassword,
+                icon: "lock",
+              );
             },
-            controller: newPassword,
-            hintText: context.arb.confirmPassword,
-            labelText: context.arb.confirmYourPassword,
-            icon: "lock",
           ),
         ],
       ),
