@@ -32,8 +32,8 @@ class AppointmentCard extends StatelessWidget {
         color: color,
         border: Border.all(color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          const BoxShadow(
+        boxShadow: const [
+          BoxShadow(
             color: AppColors.darkGreyColor,
             offset: Offset(0, 3),
             blurRadius: 1,

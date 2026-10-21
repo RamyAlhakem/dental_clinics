@@ -32,21 +32,21 @@ class _ScheduleScreenState extends State<ScheduleScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          const TabScheduleScreen(
+        children: const [
+          TabScheduleScreen(
             textBtnOne: "Decline",
             textBtnTwo: "Accept",
             backgroundColorBtnOne: AppColors.whiteColor,
             foregroundColorBtnOne: AppColors.primaryColor,
           ),
-          const TabScheduleScreen(
+          TabScheduleScreen(
             textBtnOne: "Accepted",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.oliveColor,
             foregroundColorBtnOne: AppColors.whiteColor,
             showSecoundBtn: false,
           ),
-          const TabScheduleScreen(
+          TabScheduleScreen(
             textBtnOne: "Declined",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.redWineColor,
@@ -54,7 +54,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
             showSecoundBtn: false,
           ),
 
-          const TabScheduleScreen(
+          TabScheduleScreen(
             textBtnOne: "Completed",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.oliveColor,
