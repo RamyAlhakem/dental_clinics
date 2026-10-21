@@ -45,4 +45,14 @@ class AuthCubit extends Cubit<AuthState> {
   changeShowPass(bool val) {
     emit(AuthChangingIsHidestate(isHide: val));
   }
+
+  signOut() async {
+    emit(AuthLoadingState(isHide: state.isHide));
+    final result = await authUseCase.logoutUseCase.call();
+    if (result.data != null) {
+      emit(AuthSignOutState(msg: result.msg!, isHide: true));
+    } else {
+      emit(AuthFailedState(msg: result.msg!, isHide: state.isHide));
+    }
+  }
 }

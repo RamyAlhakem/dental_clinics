@@ -5,10 +5,8 @@ import 'package:dental_clinics_app/clinic/features/patients/presentation/view/sc
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/profile_screen.dart';
 import 'package:dental_clinics_app/clinic/features/schedule/presentation/view/screens/schedule_screen.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
-import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({super.key});
@@ -25,6 +23,12 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     PatientsScreen(),
     ProfileScreen(),
   ];
+  @override
+  void initState() {
+    context.read<BottomNavigationBarCubit>().selectIndex(0);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBarCubit, BottomNavigationBarState>(

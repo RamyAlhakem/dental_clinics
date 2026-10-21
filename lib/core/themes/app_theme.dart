@@ -41,6 +41,7 @@ class AppTheme {
           fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
         ),
       ),
+      dialogTheme: DialogThemeData(backgroundColor: AppColors.backgroundColor),
       inputDecorationTheme: InputDecorationThemeData(
         fillColor: AppColors.whiteColor,
         filled: true,

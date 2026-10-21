@@ -10,4 +10,8 @@ class RoleCubit extends Cubit<RoleState> {
   selectPatient() {
     emit(RolePatientState(selectedRole: Roles.patients));
   }
+
+  clearRole() {
+    emit(RoleUnknownState(selectedRole: null));
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:dental_clinics_app/core/componeents/app_button_gredient.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
+import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_widget.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_state.dart';
@@ -19,6 +20,12 @@ class RoleSelectionScreen extends StatefulWidget {
 }
 
 class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
+  @override
+  void initState() {
+    context.read<RoleCubit>().clearRole();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

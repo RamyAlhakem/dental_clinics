@@ -78,4 +78,16 @@ class AuthRepositoryImpl implements AuthRepository {
       return AppResult.failure("Error");
     }
   }
+
+  @override
+  Future<AppResult<UserEntitie>> signOut() async {
+    try {
+      await authRemoteDataSource.signOut();
+      return AppResult.success(UserEntitie());
+    } on FirebaseAuthException catch (e) {
+      return AppResult.failure("Falid to logout");
+    } catch (e) {
+      return AppResult.failure("Unknown error");
+    }
+  }
 }

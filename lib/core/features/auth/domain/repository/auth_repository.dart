@@ -12,4 +12,5 @@ abstract class AuthRepository {
     required String password,
   });
   Future<AppResult<UserEntitie>> resetPassword({required String email});
+  Future<AppResult<UserEntitie>> signOut();
 }

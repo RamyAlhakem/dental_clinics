@@ -44,6 +44,13 @@ class AuthFailedState extends AuthState {
   List<Object?> get props => [msg];
 }
 
+class AuthSignOutState extends AuthState {
+  final String msg;
+  const AuthSignOutState({required this.msg, required super.isHide});
+  @override
+  List<Object?> get props => [msg];
+}
+
 class AuthChangingIsHidestate extends AuthState {
   const AuthChangingIsHidestate({required super.isHide});
 }
