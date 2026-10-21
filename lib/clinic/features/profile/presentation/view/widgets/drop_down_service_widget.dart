@@ -15,7 +15,7 @@ class DropDownServiceWidget extends StatelessWidget {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         return Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             color: AppColors.whiteColor,
             border: Border.all(color: AppColors.blackColor),
@@ -23,8 +23,8 @@ class DropDownServiceWidget extends StatelessWidget {
           ),
           child: Row(
             children: [
-              SvgWidget(icon: "medical_services"),
-              SizedBox(width: 15),
+              const SvgWidget(icon: "medical_services"),
+              const SizedBox(width: 15),
               Expanded(
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton(
@@ -37,7 +37,7 @@ class DropDownServiceWidget extends StatelessWidget {
                     ),
 
                     value: state.selectedService,
-                    hint: Text("Select Service"),
+                    hint: const Text("Select Service"),
                     items: ProfileLocalDataSourceIml()
                         .getStaticServices()
                         .map(

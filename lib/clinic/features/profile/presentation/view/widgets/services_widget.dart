@@ -19,7 +19,7 @@ class ServicesWidget extends StatelessWidget {
       },
       child: Container(
         width: context.screenWidth / 2.5,
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         decoration: BoxDecoration(
           color: service.status ? AppColors.primaryColor : AppColors.whiteColor,
           border: Border.all(color: AppColors.primaryColor),

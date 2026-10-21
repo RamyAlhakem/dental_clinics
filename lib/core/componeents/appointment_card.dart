@@ -1,7 +1,5 @@
 import 'package:dental_clinics_app/core/componeents/appointment_buttons.dart';
-import 'package:dental_clinics_app/core/componeents/button.dart';
 import 'package:dental_clinics_app/core/componeents/circle_widget.dart';
-import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -29,13 +27,13 @@ class AppointmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       decoration: BoxDecoration(
         color: color,
         border: Border.all(color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
-          BoxShadow(
+          const BoxShadow(
             color: AppColors.darkGreyColor,
             offset: Offset(0, 3),
             blurRadius: 1,
@@ -48,7 +46,7 @@ class AppointmentCard extends StatelessWidget {
           Row(
             spacing: 10,
             children: [
-              CircleWidget(text: "K"),
+              const CircleWidget(text: "K"),
               Column(
                 spacing: 5,
                 crossAxisAlignment: CrossAxisAlignment.start,

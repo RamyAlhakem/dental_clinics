@@ -1,4 +1,3 @@
-import 'package:dental_clinics_app/core/componeents/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileProfile extends StatelessWidget {
@@ -16,7 +15,7 @@ class ExpansionTileProfile extends StatelessWidget {
       shape: const Border(),
 
       title: Text(title, style: Theme.of(context).textTheme.bodyLarge),
-      childrenPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      childrenPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       children: children,
     );
   }

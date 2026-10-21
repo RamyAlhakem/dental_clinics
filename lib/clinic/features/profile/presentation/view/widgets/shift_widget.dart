@@ -64,7 +64,7 @@ class _ShiftWidgetState extends State<ShiftWidget> {
     return Column(
       children: [
         AppText(text: _nameOfShift),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Wrap(
           alignment: WrapAlignment.center,
           spacing: 10,

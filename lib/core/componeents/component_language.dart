@@ -32,7 +32,7 @@ class ComponentLanguage extends StatelessWidget {
           context.arb.pleaseSelectYourPreferredLanguage,
           style: Theme.of(context).textTheme.labelMedium,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         ListTileLanguage(
           languageCode: "en",
           text: "English",
@@ -41,7 +41,7 @@ class ComponentLanguage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         ListTileLanguage(
           languageCode: "ar",
           text: "العربية",

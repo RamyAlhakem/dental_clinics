@@ -30,7 +30,7 @@ class SignUpWidget extends StatelessWidget {
       child: Column(
         children: [
           AppText(text: context.arb.clinicName),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           AppTextFormField(
             validator: (val) {
               if (val!.isEmpty) {
@@ -43,9 +43,9 @@ class SignUpWidget extends StatelessWidget {
             labelText: context.arb.enterYourClinicName,
             icon: "add_home_work_smaller",
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppText(text: context.arb.email),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           AppTextFormField(
             validator: (val) {
               if (val!.isEmpty) {
@@ -58,9 +58,9 @@ class SignUpWidget extends StatelessWidget {
             labelText: context.arb.enterYourEmail,
             icon: "mail",
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppText(text: context.arb.phone),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           AppTextFormField(
             validator: (val) {
               if (val!.isEmpty) {
@@ -73,9 +73,9 @@ class SignUpWidget extends StatelessWidget {
             labelText: context.arb.enterYourPhone,
             icon: "call",
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppText(text: context.arb.password),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               return AppTextFormField(
@@ -98,9 +98,9 @@ class SignUpWidget extends StatelessWidget {
             },
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppText(text: context.arb.confirmPassword),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               return AppTextFormField(

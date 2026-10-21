@@ -34,7 +34,7 @@ class _TabScheduleScreenState extends State<TabScheduleScreen> {
       padding: const EdgeInsets.all(20),
       child: ListView.separated(
         itemCount: 7,
-        separatorBuilder: (context, index) => SizedBox(height: 15),
+        separatorBuilder: (context, index) => const SizedBox(height: 15),
         itemBuilder: (context, i) => AppointmentCard(
           color: widget.color,
           textBtnOne: widget.textBtnOne,

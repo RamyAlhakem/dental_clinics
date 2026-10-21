@@ -13,7 +13,7 @@ class ServiceStatusWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AppText(text: "Service Status"),
+        const AppText(text: "Service Status"),
         BlocBuilder<ProfileCubit, ProfileState>(
           builder: (context, state) {
             return Row(

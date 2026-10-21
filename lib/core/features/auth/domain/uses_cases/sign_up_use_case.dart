@@ -2,7 +2,6 @@ import 'package:dental_clinics_app/core/errors/app_result.dart';
 import 'package:dental_clinics_app/core/features/auth/data/models/user_model.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/entities/user_entitie.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/repository/auth_repository.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/auth_use_case.dart';
 
 class SignUpUseCase {
   final AuthRepository repository;

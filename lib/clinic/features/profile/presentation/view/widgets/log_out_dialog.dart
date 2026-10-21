@@ -17,7 +17,7 @@ class LogOutDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           mainAxisSize: MainAxisSize.min,
 
@@ -39,7 +39,7 @@ class LogOutDialog extends StatelessWidget {
               "Are you sure you want to logout of your account?",
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               spacing: 20,
@@ -79,6 +79,5 @@ class LogOutDialog extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

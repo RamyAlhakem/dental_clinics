@@ -25,7 +25,7 @@ class AppDialog {
             color: AppColors.whiteColor,
             borderRadius: BorderRadius.circular(20),
           ),
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -37,7 +37,7 @@ class AppDialog {
                 fit: fit,
               ),
               Text(title, style: Theme.of(context).textTheme.bodySmall),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 subTitle,
                 textAlign: TextAlign.center,
@@ -46,7 +46,7 @@ class AppDialog {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               AppButton(
                 onPressed: onPressed,
                 text: textBtn,

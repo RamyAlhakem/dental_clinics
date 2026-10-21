@@ -13,7 +13,7 @@ class SuccessDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -22,7 +22,7 @@ class SuccessDialog extends StatelessWidget {
               context.arb.accountCreatedSuccessfully,
               style: Theme.of(context).textTheme.bodySmall,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               textAlign: TextAlign.center,
               context.arb.checkInboxToVerifyEmail,
@@ -31,7 +31,7 @@ class SuccessDialog extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             AppButton(
               onPressed: () {
                 context.pushReplacementNamed(RouteNames.signIn);

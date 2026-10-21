@@ -41,7 +41,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: SvgWidget(icon: "add"),
+        child: const SvgWidget(icon: "add"),
         onPressed: () => context.pushNamed(RouteNames.addNewService),
       ),
       // bottomNavigationBar: BottomNnavigationBarAvailable(),
@@ -51,8 +51,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
         child: ListView(
           children: [
             AppText(text: context.arb.whatServicesDoesTheClinicOffer),
-            SizedBox(height: 20),
-            ServicesListWidget(),
+            const SizedBox(height: 20),
+            const ServicesListWidget(),
           ],
         ),
       ),

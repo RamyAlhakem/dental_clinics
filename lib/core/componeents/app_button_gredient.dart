@@ -23,11 +23,11 @@ class AppButtonGredient extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: horizontal ?? 0),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         width: width ?? context.screenWidth / 1.2,
         height: 45,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
@@ -39,7 +39,7 @@ class AppButtonGredient extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: isLoading
-            ? SizedBox(
+            ? const SizedBox(
                 width: 20,
                 height: 20,
                 child: Center(

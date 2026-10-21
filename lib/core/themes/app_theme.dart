@@ -17,7 +17,7 @@ class AppTheme {
           fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
         ),
       ),
-      tabBarTheme: TabBarThemeData(
+      tabBarTheme: const TabBarThemeData(
         tabAlignment: TabAlignment.start,
         unselectedLabelStyle: TextStyle(
           fontSize: 14,
@@ -41,7 +41,7 @@ class AppTheme {
           fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",
         ),
       ),
-      dialogTheme: DialogThemeData(backgroundColor: AppColors.backgroundColor),
+      dialogTheme: const DialogThemeData(backgroundColor: AppColors.backgroundColor),
       inputDecorationTheme: InputDecorationThemeData(
         fillColor: AppColors.whiteColor,
         filled: true,
@@ -68,15 +68,15 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: AppColors.primaryColor),
+          borderSide: const BorderSide(color: AppColors.primaryColor),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: AppColors.redColor),
+          borderSide: const BorderSide(color: AppColors.redColor),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: AppColors.redColor),
+          borderSide: const BorderSide(color: AppColors.redColor),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -94,7 +94,7 @@ class AppTheme {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
           side: WidgetStateProperty.all(
-            BorderSide(color: AppColors.primaryColor),
+            const BorderSide(color: AppColors.primaryColor),
           ),
         ),
       ),
@@ -144,10 +144,10 @@ class AppTheme {
         timeSelectorSeparatorColor: WidgetStateProperty.all(
           AppColors.darkPrimary,
         ),
-        dayPeriodBorderSide: BorderSide(color: AppColors.darkPrimary),
+        dayPeriodBorderSide: const BorderSide(color: AppColors.darkPrimary),
         entryModeIconColor: AppColors.darkPrimary,
         dayPeriodTextColor: AppColors.darkPrimary,
-        helpTextStyle: TextStyle(color: AppColors.darkPrimary),
+        helpTextStyle: const TextStyle(color: AppColors.darkPrimary),
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.all(AppColors.whiteColor),
@@ -159,7 +159,7 @@ class AppTheme {
           }
         }),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColors.primaryColor,
       ),
       checkboxTheme: CheckboxThemeData(
@@ -171,10 +171,10 @@ class AppTheme {
           }
         }),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-        side: BorderSide(color: AppColors.primaryColor),
+        side: const BorderSide(color: AppColors.primaryColor),
       ),
 
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.bold,
@@ -239,8 +239,8 @@ class AppTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor: AppColors.iconColor,
         unselectedItemColor: AppColors.darkGreyColor,
-        selectedIconTheme: IconThemeData(size: 32),
-        unselectedIconTheme: IconThemeData(size: 27),
+        selectedIconTheme: const IconThemeData(size: 32),
+        unselectedIconTheme: const IconThemeData(size: 27),
         selectedLabelStyle: TextStyle(
           fontSize: 16,
           fontFamily: isArabic ? "Tajawal" : "PlusJakartaSans",

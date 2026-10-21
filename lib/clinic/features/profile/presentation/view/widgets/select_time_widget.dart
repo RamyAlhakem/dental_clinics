@@ -17,7 +17,7 @@ class SelectTimeWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: AppColors.lighterPrimaryColor.withValues(alpha: 0.2),
           border: Border.all(color: AppColors.primaryColor),

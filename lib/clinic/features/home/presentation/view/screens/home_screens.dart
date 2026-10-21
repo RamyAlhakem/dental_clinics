@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: const PreferredSize(
         preferredSize: Size.fromHeight(60),
         child: AppBarHome(),
       ),
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            NextAppointmentsWidget(),
+            const NextAppointmentsWidget(),
             AppointmentCard(
               textBtnOne: context.arb.complete,
               textBtnTwo: context.arb.edit,

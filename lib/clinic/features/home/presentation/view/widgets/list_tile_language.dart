@@ -31,10 +31,10 @@ class ListTileLanguage extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           onTap: onTap,
-          leading: SvgWidget(icon: "translate"),
+          leading: const SvgWidget(icon: "translate"),
           title: Text(text),
           trailing: state.selectedLang.languageCode == languageCode
-              ? SvgWidget(icon: "check_circle")
+              ? const SvgWidget(icon: "check_circle")
               : null,
         );
       },

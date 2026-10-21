@@ -18,7 +18,7 @@ class DurationTimeWidget extends StatelessWidget {
             context.read<ProfileCubit>().selectDuration(duration);
           },
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: state.selectedDuration == duration
                   ? AppColors.primaryColor

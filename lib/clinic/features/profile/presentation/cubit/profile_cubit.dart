@@ -12,7 +12,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileUseCase profileUseCase;
   ProfileCubit({required this.profileUseCase})
     : super(
-        InitiSelectedServiceState(
+        const InitiSelectedServiceState(
           selectedService: null,
           isEnabled: false,
           enabledDay: false,

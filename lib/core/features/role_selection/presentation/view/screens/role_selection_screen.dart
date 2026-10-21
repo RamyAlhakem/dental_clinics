@@ -1,7 +1,6 @@
 import 'package:dental_clinics_app/core/componeents/app_button_gredient.dart';
 import 'package:dental_clinics_app/core/componeents/app_text.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
-import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/sign_widget.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_state.dart';
@@ -37,7 +36,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
               // spacing: 30,
               children: [
                 AppText(text: context.arb.selectAccountType),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 SelectionOptionWidget(
                   role: Roles.clinics,
                   onTap: () {
@@ -46,7 +45,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                   title: context.arb.clinic,
                   icon: "add_home_work",
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 SelectionOptionWidget(
                   role: Roles.patients,
                   onTap: () {
@@ -55,7 +54,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                   title: context.arb.patient,
                   icon: "supervisor_account",
                 ),
-                Spacer(),
+                const Spacer(),
                 AppButtonGredient(
                   horizontal: 0,
                   text: context.arb.signIn,
@@ -71,7 +70,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                     }
                   },
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 SignWidget(
                   text: context.arb.dontHaveAnAccountSignUpHere,
                   onTap: () {
@@ -86,7 +85,7 @@ class _RoleSelectionScreenState extends State<RoleSelectionScreen> {
                     }
                   },
                 ),
-                SizedBox(height: 80),
+                const SizedBox(height: 80),
               ],
             ),
           ),

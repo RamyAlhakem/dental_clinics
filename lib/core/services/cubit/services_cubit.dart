@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ServicesCubit extends Cubit<ServicesState> {
-  ServicesCubit() : super(ChangingLangArabicState(selectedLang: Locale("ar")));
+  ServicesCubit() : super(const ChangingLangArabicState(selectedLang: Locale("ar")));
   changingLangToArabic() {
-    emit(ChangingLangArabicState(selectedLang: Locale("ar")));
+    emit(const ChangingLangArabicState(selectedLang: Locale("ar")));
   }
 
   changingLangToEnglish() {
-    emit(ChangingLangEnglishState(selectedLang: Locale("en")));
+    emit(const ChangingLangEnglishState(selectedLang: Locale("en")));
   }
 }

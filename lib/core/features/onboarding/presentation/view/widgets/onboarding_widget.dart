@@ -34,7 +34,7 @@ class OnboardingWidget extends StatelessWidget {
           },
         ),
         Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
         OnboardingImage(img: img),
       ],
     );

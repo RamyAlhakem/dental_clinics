@@ -60,7 +60,7 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
             context.pushNamed(RouteNames.screenDay);
           }
         },
-        child: SvgWidget(icon: "add"),
+        child: const SvgWidget(icon: "add"),
       ),
       // bottomNavigationBar: BottomNnavigationBarAvailable(onTap: () {}),
       appBar: AppAppBar(title: context.arb.availableTimes),
@@ -69,7 +69,7 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
         child: ListView(
           children: [
             AppText(text: context.arb.daysOfTheWeek),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Wrap(
               alignment: WrapAlignment.center,
 
@@ -88,21 +88,21 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
                   )
                   .toList(),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             BlocBuilder<ProfileCubit, ProfileState>(
               builder: (context, state) {
                 if (state is LoadingUserInfoProfileState) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(
                       color: AppColors.primaryColor,
                     ),
                   );
                 } else if (state is LoadedDayUserInfoProfileState) {
                   return ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: state.shifts.length,
-                    separatorBuilder: (context, i) => SizedBox(height: 10),
+                    separatorBuilder: (context, i) => const SizedBox(height: 10),
                     itemBuilder: (context, i) {
                       return ShiftWidget(
                         shift: state.shifts[i],
@@ -111,7 +111,7 @@ class _AvailableTimesScreenState extends State<AvailableTimesScreen> {
                     },
                   );
                 } else {
-                  return SizedBox();
+                  return const SizedBox();
                 }
               },
             ),

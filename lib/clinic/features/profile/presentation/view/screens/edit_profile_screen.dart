@@ -41,14 +41,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 icon: "lock",
                 suffixIcon: "visibility",
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               AppTextFormField(
                 hintText: context.arb.newPassword,
                 labelText: context.arb.enterNewPassword,
                 icon: "lock",
                 suffixIcon: "visibility",
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               AppTextFormField(
                 hintText: context.arb.confirmNewPassword,
                 labelText: context.arb.confirmYourNewPassword,
@@ -69,9 +69,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
+            margin: const EdgeInsets.symmetric(vertical: 20),
             child: Row(
               spacing: 20,
               mainAxisAlignment: MainAxisAlignment.center,

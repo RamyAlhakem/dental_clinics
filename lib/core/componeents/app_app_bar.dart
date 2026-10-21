@@ -33,7 +33,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           leading ??
           GestureDetector(
             onTap: () => context.pop(),
-            child: Icon(Icons.arrow_back_ios_new),
+            child: const Icon(Icons.arrow_back_ios_new),
           ),
       title: subtitle == null
           ? Text(title)

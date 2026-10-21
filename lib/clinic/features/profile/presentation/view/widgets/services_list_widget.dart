@@ -22,7 +22,7 @@ class ServicesListWidget extends StatelessWidget {
             ),
           );
         } else if (state is LoadingUserInfoProfileState) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(color: AppColors.primaryColor),
           );
         } else {

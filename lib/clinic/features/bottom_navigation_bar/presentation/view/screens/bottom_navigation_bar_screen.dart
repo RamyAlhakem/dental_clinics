@@ -18,10 +18,10 @@ class BottomNavigationBarScreen extends StatefulWidget {
 
 class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   List pages = [
-    HomeScreen(),
-    ScheduleScreen(),
-    PatientsScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const ScheduleScreen(),
+    const PatientsScreen(),
+    const ProfileScreen(),
   ];
   @override
   void initState() {
@@ -42,19 +42,19 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
             },
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
+                icon: const Icon(Icons.home_outlined),
                 label: context.arb.home,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.schedule_outlined),
+                icon: const Icon(Icons.schedule_outlined),
                 label: context.arb.schedule,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.people_outline),
+                icon: const Icon(Icons.people_outline),
                 label: context.arb.patients,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined),
+                icon: const Icon(Icons.account_circle_outlined),
                 label: context.arb.profile,
               ),
             ],

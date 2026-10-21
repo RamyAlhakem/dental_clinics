@@ -1,5 +1,4 @@
 import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/view/screens/bottom_navigation_bar_screen.dart';
-import 'package:dental_clinics_app/clinic/features/home/presentation/view/screens/home_screens.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/add_new_service_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/available_times_screen.dart';
@@ -22,42 +21,42 @@ class RoutingConfig {
       GoRoute(
         name: RouteNames.onboarding,
         path: "/",
-        builder: (context, state) => OnboardingScreen(),
+        builder: (context, state) => const OnboardingScreen(),
       ),
       GoRoute(
         name: RouteNames.roleSelction,
         path: "/role",
-        builder: (context, state) => RoleSelectionScreen(),
+        builder: (context, state) => const RoleSelectionScreen(),
       ),
       GoRoute(
         name: RouteNames.signIn,
         path: "/signIn",
-        builder: (context, state) => SignInScreen(),
+        builder: (context, state) => const SignInScreen(),
       ),
       GoRoute(
         name: RouteNames.signUp,
         path: "/signUp",
-        builder: (context, state) => SignUpScreen(),
+        builder: (context, state) => const SignUpScreen(),
       ),
       GoRoute(
         name: RouteNames.bottomNavigationBar,
         path: "/home",
-        builder: (context, state) => BottomNavigationBarScreen(),
+        builder: (context, state) => const BottomNavigationBarScreen(),
       ),
       GoRoute(
         name: RouteNames.editProfile,
         path: "/editProfile",
-        builder: (context, state) => EditProfileScreen(),
+        builder: (context, state) => const EditProfileScreen(),
       ),
       GoRoute(
         name: RouteNames.availableTimes,
         path: "/availableTimes",
-        builder: (context, state) => AvailableTimesScreen(),
+        builder: (context, state) => const AvailableTimesScreen(),
       ),
       GoRoute(
         name: RouteNames.services,
         path: "/services",
-        builder: (context, state) => ServicesScreen(),
+        builder: (context, state) => const ServicesScreen(),
       ),
       GoRoute(
         name: RouteNames.addNewService,
@@ -68,22 +67,22 @@ class RoutingConfig {
       GoRoute(
         name: RouteNames.screenDay,
         path: "/screenDay",
-        builder: (context, state) => ScreenDay(),
+        builder: (context, state) => const ScreenDay(),
       ),
       GoRoute(
         name: RouteNames.languageScreen,
         path: "/languageScreen",
-        builder: (context, state) => LanguageScreen(),
+        builder: (context, state) => const LanguageScreen(),
       ),
       GoRoute(
         name: RouteNames.contactSupportScreen,
         path: "/contactSupportScreen",
-        builder: (context, state) => ContactSupportScreen(),
+        builder: (context, state) => const ContactSupportScreen(),
       ),
       GoRoute(
         name: RouteNames.resetPassword,
         path: "/resetPassword",
-        builder: (context, state) => ResetPasswordScreen(),
+        builder: (context, state) => const ResetPasswordScreen(),
       ),
     ],
   );

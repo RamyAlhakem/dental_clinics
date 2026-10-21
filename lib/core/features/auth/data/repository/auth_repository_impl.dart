@@ -71,8 +71,8 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<AppResult<UserEntitie>> resetPassword({required String email}) async {
     try {
       await authRemoteDataSource.sendPasswordResetemail(email: email);
-      return AppResult.success(UserEntitie());
-    } on FirebaseAuthException catch (e) {
+      return AppResult.success(const UserEntitie());
+    } on FirebaseAuthException {
       return AppResult.failure("Falied to reset password ");
     } catch (e) {
       return AppResult.failure("Error");
@@ -83,8 +83,8 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<AppResult<UserEntitie>> signOut() async {
     try {
       await authRemoteDataSource.signOut();
-      return AppResult.success(UserEntitie());
-    } on FirebaseAuthException catch (e) {
+      return AppResult.success(const UserEntitie());
+    } on FirebaseAuthException {
       return AppResult.failure("Falid to logout");
     } catch (e) {
       return AppResult.failure("Unknown error");

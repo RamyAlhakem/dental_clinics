@@ -21,7 +21,7 @@ class BottomNnavigationBarAvailable extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 20,

@@ -5,7 +5,6 @@ import 'package:dental_clinics_app/core/features/onboarding/presentation/cubit/o
 import 'package:dental_clinics_app/core/features/onboarding/presentation/cubit/onboarding_state.dart';
 import 'package:dental_clinics_app/core/features/onboarding/presentation/view/widgets/onboarding_widget.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
-import 'package:dental_clinics_app/core/texts/contents.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   TextButton(
                     onPressed: () {
                       context.goNamed(RouteNames.roleSelction);
@@ -82,12 +81,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               SmoothPageIndicator(
                 controller: _controller,
                 count: 3,
-                effect: WormEffect(
+                effect: const WormEffect(
                   dotColor: AppColors.darkGreyColor,
                   activeDotColor: AppColors.iconColor,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               BlocBuilder<OnboardingCubit, OnboardingState>(
                 builder: (context, state) {
                   if (state.index == 2) {
@@ -102,7 +101,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       text: context.arb.next,
                       onTap: () {
                         _controller.nextPage(
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
                       },

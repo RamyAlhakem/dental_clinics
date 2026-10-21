@@ -1,4 +1,3 @@
-import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {

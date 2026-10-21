@@ -25,7 +25,7 @@ class DayWidget extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: context.screenWidth / 3.8,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
               color: state.selectedDay == null
                   ? AppColors.whiteColor

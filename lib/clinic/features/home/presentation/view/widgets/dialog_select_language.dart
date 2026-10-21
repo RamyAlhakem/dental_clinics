@@ -8,8 +8,8 @@ class DialogSelectLanguage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-        padding: EdgeInsets.all(15),
-        child: Column(
+        padding: const EdgeInsets.all(15),
+        child: const Column(
           mainAxisSize: MainAxisSize.min,
           children: [ComponentLanguage()],
         ),

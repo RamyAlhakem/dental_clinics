@@ -1,6 +1,5 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/entities/day_schedule_entities.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/slot_entities.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_state.dart';

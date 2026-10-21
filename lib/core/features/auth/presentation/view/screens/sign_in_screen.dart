@@ -13,7 +13,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -43,7 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(title: context.arb.signIn, leading: SizedBox()),
+      appBar: AppAppBar(title: context.arb.signIn, leading: const SizedBox()),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccessState) {
@@ -96,7 +95,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 password: _password,
                 formState: _formState,
               ),
-              Spacer(),
+              const Spacer(),
               BlocBuilder<AuthCubit, AuthState>(
                 builder: (context, state) {
                   if (state is AuthLoadingState) {
@@ -125,12 +124,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               SignWidget(
                 text: context.arb.dontHaveAnAccountSignUpHere,
                 onTap: () => context.pushReplacementNamed(RouteNames.signUp),
               ),
-              SizedBox(height: 85),
+              const SizedBox(height: 85),
             ],
           ),
         ),

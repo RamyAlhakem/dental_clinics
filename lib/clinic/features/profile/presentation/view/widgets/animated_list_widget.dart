@@ -15,7 +15,7 @@ class AnimatedListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedList(
       key: listKey,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       initialItemCount: slots.length,
       itemBuilder: (context, i, animation) {
@@ -31,7 +31,7 @@ class AnimatedListWidget extends StatelessWidget {
                   sizeFactor: animation,
                   child: TimeBlockWidget(slot: item),
                 );
-              }), duration: Duration(seconds: 1));
+              }), duration: const Duration(seconds: 1));
               slots.removeAt(i);
             },
           ),

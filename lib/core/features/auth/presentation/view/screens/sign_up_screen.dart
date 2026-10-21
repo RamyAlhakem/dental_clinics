@@ -1,6 +1,5 @@
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/componeents/app_button_gredient.dart';
-import 'package:dental_clinics_app/core/componeents/button.dart';
 import 'package:dental_clinics_app/core/componeents/success_dialog.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
 import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
@@ -54,13 +53,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(title: context.arb.signUp, leading: SizedBox()),
+      appBar: AppAppBar(title: context.arb.signUp, leading: const SizedBox()),
       body: BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is AuthFailedState) {
             AppSnackBar.showError(context, msg: state.msg);
           } else if (state is AuthSuccessState) {
-            showDialog(context: context, builder: (context) => SuccessDialog());
+            showDialog(context: context, builder: (context) => const SuccessDialog());
           }
         },
         child: Padding(
@@ -120,12 +119,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   }
                 },
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               SignWidget(
                 text: context.arb.haveAnAccountSignInHere,
                 onTap: () => context.pushNamed(RouteNames.signIn),
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
             ],
           ),
         ),

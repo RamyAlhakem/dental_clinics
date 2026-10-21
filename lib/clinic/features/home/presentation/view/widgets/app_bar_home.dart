@@ -24,20 +24,20 @@ class AppBarHome extends StatelessWidget {
               child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
-            leading: SizedBox(),
+            leading: const SizedBox(),
             actions: [
               IconButton(
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => DialogSelectLanguage(),
+                    builder: (context) => const DialogSelectLanguage(),
                   );
                 },
-                icon: Icon(Icons.language),
+                icon: const Icon(Icons.language),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.notifications_outlined),
+                icon: const Icon(Icons.notifications_outlined),
               ),
             ],
           );
@@ -51,20 +51,20 @@ class AppBarHome extends StatelessWidget {
               child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
-            leading: SizedBox(),
+            leading: const SizedBox(),
             actions: [
               IconButton(
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => DialogSelectLanguage(),
+                    builder: (context) => const DialogSelectLanguage(),
                   );
                 },
-                icon: Icon(Icons.language),
+                icon: const Icon(Icons.language),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.notifications_outlined),
+                icon: const Icon(Icons.notifications_outlined),
               ),
             ],
           );
@@ -78,20 +78,20 @@ class AppBarHome extends StatelessWidget {
               child: SvgPicture.asset("assets/icons/teath.svg"),
             ),
             centerTitle: false,
-            leading: SizedBox(),
+            leading: const SizedBox(),
             actions: [
               IconButton(
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => DialogSelectLanguage(),
+                    builder: (context) => const DialogSelectLanguage(),
                   );
                 },
-                icon: Icon(Icons.language),
+                icon: const Icon(Icons.language),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.notifications_outlined),
+                icon: const Icon(Icons.notifications_outlined),
               ),
             ],
           );

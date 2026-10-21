@@ -16,8 +16,8 @@ class TimeBlockWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      margin: EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         border: Border.all(color: AppColors.primaryColor),
@@ -29,7 +29,7 @@ class TimeBlockWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: AppColors.lighterPrimaryColor.withValues(alpha: 0.5),
                   borderRadius: BorderRadius.circular(5),
@@ -52,7 +52,7 @@ class TimeBlockWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             spacing: 30,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +68,7 @@ class TimeBlockWidget extends StatelessWidget {
                   );
                 },
               ),
-              SvgWidget(icon: "line"),
+              const SvgWidget(icon: "line"),
               BlocBuilder<ProfileCubit, ProfileState>(
                 builder: (context, state) {
                   return SelectTimeWidget(

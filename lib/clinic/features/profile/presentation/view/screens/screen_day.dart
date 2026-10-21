@@ -74,19 +74,19 @@ class _ScreenDayState extends State<ScreenDay> {
         }
       },
       child: Scaffold(
-        appBar: AppBarDay(),
+        appBar: const AppBarDay(),
         bottomNavigationBar: BottomDayWidget(slots: _slots),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: ListView(
             children: [
-              TurnDayWidget(),
-              SizedBox(height: 30),
-              AppText(text: "Time blocks"),
-              SizedBox(height: 10),
+              const TurnDayWidget(),
+              const SizedBox(height: 30),
+              const AppText(text: "Time blocks"),
+              const SizedBox(height: 10),
               AnimatedListWidget(listKey: _key, slots: _slots),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               AddAnotherBlockButton(
                 onTap: () {
                   _slots.insert(
@@ -98,13 +98,13 @@ class _ScreenDayState extends State<ScreenDay> {
                   );
                   _key.currentState!.insertItem(
                     0,
-                    duration: Duration(seconds: 1),
+                    duration: const Duration(seconds: 1),
                   );
                 },
               ),
-              SizedBox(height: 30),
-              AppText(text: "Appointment duration"),
-              SizedBox(height: 10),
+              const SizedBox(height: 30),
+              const AppText(text: "Appointment duration"),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 15,
@@ -113,8 +113,8 @@ class _ScreenDayState extends State<ScreenDay> {
                     .map((duration) => DurationTimeWidget(duration: duration))
                     .toList(),
               ),
-              SizedBox(height: 30),
-              ApplyWidget(),
+              const SizedBox(height: 30),
+              const ApplyWidget(),
             ],
           ),
         ),

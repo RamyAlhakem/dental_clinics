@@ -1,5 +1,4 @@
 import 'package:dental_clinics_app/clinic/features/profile/data/models/day_schedule_models.dart';
-import 'package:dental_clinics_app/clinic/features/profile/data/models/schedule_days_models.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/repository/profile_repository.dart';
 import 'package:dental_clinics_app/core/errors/app_result.dart';
 

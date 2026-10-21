@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AuthCubit extends Cubit<AuthState> {
   final AuthUseCase authUseCase;
   AuthCubit({required this.authUseCase})
-    : super(AuthInitialState(isHide: true));
+    : super(const AuthInitialState(isHide: true));
   signUp({required UserModel user, required String role}) async {
     emit(AuthLoadingState(isHide: state.isHide));
     final result = await authUseCase.signUpUseCase.call(user: user, role: role);

@@ -2,16 +2,16 @@ import 'package:dental_clinics_app/core/features/role_selection/presentation/cub
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RoleCubit extends Cubit<RoleState> {
-  RoleCubit() : super(RoleUnknownState(selectedRole: null));
+  RoleCubit() : super(const RoleUnknownState(selectedRole: null));
   selectClinic() {
-    emit(RoleClinicState(selectedRole: Roles.clinics));
+    emit(const RoleClinicState(selectedRole: Roles.clinics));
   }
 
   selectPatient() {
-    emit(RolePatientState(selectedRole: Roles.patients));
+    emit(const RolePatientState(selectedRole: Roles.patients));
   }
 
   clearRole() {
-    emit(RoleUnknownState(selectedRole: null));
+    emit(const RoleUnknownState(selectedRole: null));
   }
 }

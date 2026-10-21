@@ -6,7 +6,7 @@ class DialogAppAnimation {
       context: context,
       barrierDismissible: true,
       barrierLabel: "",
-      transitionDuration: Duration(milliseconds: 300),
+      transitionDuration: const Duration(milliseconds: 300),
       pageBuilder: (context, animation, animationTwo) {
         return childPageBuilder;
       },

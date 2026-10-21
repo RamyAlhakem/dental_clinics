@@ -1,5 +1,4 @@
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
-import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TabBarSchedule extends StatelessWidget implements PreferredSizeWidget {
@@ -21,5 +20,5 @@ class TabBarSchedule extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(0);
+  Size get preferredSize => const Size.fromHeight(0);
 }

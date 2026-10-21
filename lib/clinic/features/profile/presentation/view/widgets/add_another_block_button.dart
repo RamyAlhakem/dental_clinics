@@ -12,18 +12,18 @@ class AddAnotherBlockButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: DottedBorder(
-        options: RoundedRectDottedBorderOptions(
+        options: const RoundedRectDottedBorderOptions(
           radius: Radius.circular(10),
           color: AppColors.primaryColor,
           dashPattern: [12, 4],
         ),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 10,
             children: [
-              SvgWidget(icon: "add", color: AppColors.primaryColor),
+              const SvgWidget(icon: "add", color: AppColors.primaryColor),
               Text(
                 "Add another block",
                 style: Theme.of(

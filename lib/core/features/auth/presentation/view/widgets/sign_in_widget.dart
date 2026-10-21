@@ -5,7 +5,6 @@ import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cu
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_state.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/view/widgets/forgot_password_widget.dart';
 import 'package:dental_clinics_app/core/routing/route_names.dart';
-import 'package:dental_clinics_app/core/snack_bars_app/app_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,7 +27,7 @@ class SignInWidget extends StatelessWidget {
       child: Column(
         children: [
           AppText(text: context.arb.email),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           AppTextFormField(
             validator: (text) {
               if (text!.isEmpty) {
@@ -41,9 +40,9 @@ class SignInWidget extends StatelessWidget {
             labelText: context.arb.enterYourEmail,
             icon: "mail",
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           AppText(text: context.arb.password),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               return AppTextFormField(
@@ -65,7 +64,7 @@ class SignInWidget extends StatelessWidget {
               );
             },
           ),
-          SizedBox(height: 2),
+          const SizedBox(height: 2),
           ForgotPasswordWidget(
             text: context.arb.forgotPassword,
             onTap: () {

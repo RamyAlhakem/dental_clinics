@@ -70,25 +70,25 @@ class _AddNewServiceScreenState extends State<AddNewServiceScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              AppText(text: "Service name"),
-              SizedBox(height: 5),
-              DropDownServiceWidget(),
-              SizedBox(height: 20),
-              AppText(text: "Doctor name"),
-              SizedBox(height: 5),
+              const AppText(text: "Service name"),
+              const SizedBox(height: 5),
+              const DropDownServiceWidget(),
+              const SizedBox(height: 20),
+              const AppText(text: "Doctor name"),
+              const SizedBox(height: 5),
               AppTextFormField(
                 controller: _doctorName,
                 hintText: "Doctor name",
                 labelText: "Enter doctor name",
                 icon: "account_circle",
               ),
-              SizedBox(height: 30),
-              ServiceStatusWidget(),
-              Divider(color: AppColors.darkGreyColor),
+              const SizedBox(height: 30),
+              const ServiceStatusWidget(),
+              const Divider(color: AppColors.darkGreyColor),
               Row(
                 spacing: 10,
                 children: [
-                  SvgWidget(icon: "info"),
+                  const SvgWidget(icon: "info"),
                   Text(
                     "Service will be visible to patients when enabled",
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(

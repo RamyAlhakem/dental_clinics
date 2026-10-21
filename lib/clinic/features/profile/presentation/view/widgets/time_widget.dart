@@ -11,7 +11,7 @@ class TimeWidget extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       width: context.screenWidth / 2.6,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         border: Border.all(color: AppColors.primaryColor),

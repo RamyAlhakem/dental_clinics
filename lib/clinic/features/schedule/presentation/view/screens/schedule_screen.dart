@@ -2,7 +2,6 @@ import 'package:dental_clinics_app/clinic/features/schedule/presentation/view/sc
 import 'package:dental_clinics_app/clinic/features/schedule/presentation/view/widgets/tab_bar_schedule.dart';
 import 'package:dental_clinics_app/core/componeents/app_app_bar.dart';
 import 'package:dental_clinics_app/core/extensions/lang_extension.dart';
-import 'package:dental_clinics_app/core/extensions/screen_extension.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -28,26 +27,26 @@ class _ScheduleScreenState extends State<ScheduleScreen>
       appBar: AppAppBar(
         height: 100,
         title: context.arb.schedule,
-        leading: SizedBox(),
+        leading: const SizedBox(),
         bottom: TabBarSchedule(controller: _tabController),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
-          TabScheduleScreen(
+          const TabScheduleScreen(
             textBtnOne: "Decline",
             textBtnTwo: "Accept",
             backgroundColorBtnOne: AppColors.whiteColor,
             foregroundColorBtnOne: AppColors.primaryColor,
           ),
-          TabScheduleScreen(
+          const TabScheduleScreen(
             textBtnOne: "Accepted",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.oliveColor,
             foregroundColorBtnOne: AppColors.whiteColor,
             showSecoundBtn: false,
           ),
-          TabScheduleScreen(
+          const TabScheduleScreen(
             textBtnOne: "Declined",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.redWineColor,
@@ -55,7 +54,7 @@ class _ScheduleScreenState extends State<ScheduleScreen>
             showSecoundBtn: false,
           ),
 
-          TabScheduleScreen(
+          const TabScheduleScreen(
             textBtnOne: "Completed",
             textBtnTwo: "",
             backgroundColorBtnOne: AppColors.oliveColor,

@@ -19,7 +19,7 @@ class ListTileProfile extends StatelessWidget {
       onTap: onTap,
       title: Text(title, style: Theme.of(context).textTheme.bodyLarge),
       leading: SvgWidget(icon: icon),
-      trailing: Icon(
+      trailing: const Icon(
         Icons.arrow_forward_ios_outlined,
         color: AppColors.iconColor,
       ),

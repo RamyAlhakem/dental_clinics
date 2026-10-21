@@ -21,7 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppAppBar(title: context.arb.profile, leading: SizedBox()),
+      appBar: AppAppBar(title: context.arb.profile, leading: const SizedBox()),
       body: Column(
         children: [
           ListTileProfile(
@@ -61,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {
                 DialogAppAnimation.show(
                   context,
-                  childPageBuilder: LogOutDialog(),
+                  childPageBuilder: const LogOutDialog(),
                 );
               },
               title: "Logout",

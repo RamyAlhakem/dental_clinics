@@ -25,7 +25,6 @@ import 'package:dental_clinics_app/core/services/cubit/services_state.dart';
 import 'package:dental_clinics_app/core/themes/app_theme.dart';
 import 'package:dental_clinics_app/l10n/app_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

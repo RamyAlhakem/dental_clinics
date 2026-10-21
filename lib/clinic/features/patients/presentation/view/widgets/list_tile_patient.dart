@@ -11,10 +11,10 @@ class ListTilePatient extends StatelessWidget {
     return ListTile(
       tileColor: AppColors.whiteColor,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: AppColors.primaryColor),
+        side: const BorderSide(color: AppColors.primaryColor),
         borderRadius: BorderRadius.circular(10),
       ),
-      leading: CircleWidget(text: "K", horizontal: 20, vertical: 15),
+      leading: const CircleWidget(text: "K", horizontal: 20, vertical: 15),
       title: Text(
         "Khaled Alhakem",
         style: Theme.of(context).textTheme.bodySmall,
@@ -23,7 +23,7 @@ class ListTilePatient extends StatelessWidget {
         "0999641639",
         style: Theme.of(context).textTheme.labelMedium,
       ),
-      trailing: SvgWidget(icon: "call flip"),
+      trailing: const SvgWidget(icon: "call flip"),
     );
   }
 }

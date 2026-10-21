@@ -15,8 +15,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppAppBar(title: context.arb.language),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
+      body: const Padding(
+        padding: EdgeInsets.all(20),
         child: ComponentLanguage(width: 150, height: 150),
       ),
     );
