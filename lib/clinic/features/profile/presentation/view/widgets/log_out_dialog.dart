@@ -27,17 +27,22 @@ class LogOutDialog extends StatelessWidget {
               width: 150,
               height: 150,
               fit: BoxFit.cover,
+              repeat: false,
             ),
             Container(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Text(
                 "Logout",
-                style: Theme.of(context).textTheme.bodySmall,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Text(
               "Are you sure you want to logout of your account?",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.labelMedium,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             Row(
