@@ -61,56 +61,60 @@ class InitiSelectedServiceState extends ProfileState {
 
 class LoadedUserInfoProfileState extends ProfileState {
   LoadedUserInfoProfileState({
-    super.selectedService,
-    required super.isEnabled,
-    super.user,
-    super.selectedDay,
-    required super.enabledDay,
-    required super.applyAll,
-    required super.selectedDuration,
-  });
+    required ProfileState oldState,
+    required UserEntitie user,
+  }) : super(
+         selectedDay: oldState.selectedDay,
+         selectedDuration: oldState.selectedDuration,
+         selectedService: oldState.selectedService,
+         enabledDay: oldState.enabledDay,
+         isEnabled: oldState.isEnabled,
+         applyAll: oldState.applyAll,
+         user: user,
+       );
 }
 
 class SuccessUserInfoProfileState extends ProfileState {
   final String msg;
   SuccessUserInfoProfileState({
-    super.selectedService,
-    required super.isEnabled,
-    required super.applyAll,
+    required ProfileState oldState,
     required this.msg,
-    super.user,
-
-    super.selectedDay,
-    required super.enabledDay,
-    required super.selectedDuration,
-  });
+  }) : super(
+         selectedDay: oldState.selectedDay,
+         selectedService: oldState.selectedService,
+         selectedDuration: oldState.selectedDuration,
+         enabledDay: oldState.enabledDay,
+         applyAll: oldState.applyAll,
+         isEnabled: oldState.isEnabled,
+         user: oldState.user,
+       );
 }
 
 class SuccessDayProfileState extends ProfileState {
   final String msg;
-  SuccessDayProfileState({
-    super.selectedService,
-    required super.isEnabled,
-    required super.applyAll,
-    required this.msg,
-    super.user,
-
-    super.selectedDay,
-    required super.enabledDay,
-    required super.selectedDuration,
-  });
+  SuccessDayProfileState({required ProfileState oldState, required this.msg})
+    : super(
+        selectedDay: oldState.selectedDay,
+        selectedDuration: oldState.selectedDuration,
+        selectedService: oldState.selectedService,
+        isEnabled: oldState.isEnabled,
+        enabledDay: oldState.enabledDay,
+        user: oldState.user,
+        applyAll: oldState.applyAll,
+      );
 }
 
 class LoadingUserInfoProfileState extends ProfileState {
-  LoadingUserInfoProfileState({
-    super.selectedService,
-    required super.isEnabled,
-    super.user,
-    super.selectedDay,
-    required super.enabledDay,
-    required super.selectedDuration,
-    required super.applyAll,
-  });
+  LoadingUserInfoProfileState(ProfileState oldState)
+    : super(
+        enabledDay: oldState.enabledDay,
+        isEnabled: oldState.isEnabled,
+        user: oldState.user,
+        applyAll: oldState.applyAll,
+        selectedDuration: oldState.selectedDuration,
+        selectedDay: oldState.selectedDay,
+        selectedService: oldState.selectedService,
+      );
 }
 
 class LoadedDayUserInfoProfileState extends ProfileState {
@@ -132,15 +136,17 @@ class LoadedDayUserInfoProfileState extends ProfileState {
 class FailedUserInfoProfileState extends ProfileState {
   final String msg;
   FailedUserInfoProfileState({
-    super.selectedService,
-    required super.isEnabled,
+    required ProfileState oldState,
     required this.msg,
-    super.user,
-    super.selectedDay,
-    required super.applyAll,
-    required super.enabledDay,
-    required super.selectedDuration,
-  });
+  }) : super(
+         selectedService: oldState.selectedService,
+         selectedDuration: oldState.selectedDuration,
+         selectedDay: oldState.selectedDay,
+         user: oldState.user,
+         applyAll: oldState.applyAll,
+         enabledDay: oldState.enabledDay,
+         isEnabled: oldState.isEnabled,
+       );
 }
 
 class ChangeStartTimeProfileState extends ProfileState {

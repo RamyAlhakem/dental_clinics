@@ -52,34 +52,13 @@ class ProfileCubit extends Cubit<ProfileState> {
         selectedDuration: state.selectedDuration,
       ),
     );
-    emit(
-      LoadingUserInfoProfileState(
-        selectedService: state.selectedService,
-        isEnabled: state.isEnabled,
-        user: state.user,
-        selectedDay: day,
-        applyAll: state.applyAll,
-        enabledDay: state.enabledDay,
-        selectedDuration: state.selectedDuration,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.getInfoUseCase.call(
       role: role,
       userId: userId,
     );
     if (result.data != null) {
-      emit(
-        LoadedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-
-          user: result.data!,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          selectedDay: state.selectedDay,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(LoadedUserInfoProfileState(oldState: state, user: result.data!));
       emit(
         LoadedDayUserInfoProfileState(
           day: _getScheduleDay(),
@@ -94,18 +73,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         ),
       );
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          selectedDay: state.selectedDay,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
@@ -236,46 +204,15 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   getInfo({required String role, required String userId}) async {
-    emit(
-      LoadingUserInfoProfileState(
-        isEnabled: state.isEnabled,
-        selectedService: state.selectedService,
-        user: state.user,
-        selectedDay: state.selectedDay,
-        enabledDay: state.enabledDay,
-        selectedDuration: state.selectedDuration,
-        applyAll: state.applyAll,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.getInfoUseCase.call(
       role: role,
       userId: userId,
     );
     if (result.data != null) {
-      emit(
-        LoadedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          user: result.data!,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          selectedDay: state.selectedDay,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(LoadedUserInfoProfileState(oldState: state, user: result.data!));
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          selectedDay: state.selectedDay,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
@@ -284,48 +221,16 @@ class ProfileCubit extends Cubit<ProfileState> {
     required String docId,
     required ServiceModel service,
   }) async {
-    emit(
-      LoadingUserInfoProfileState(
-        isEnabled: state.isEnabled,
-        selectedService: state.selectedService,
-        user: state.user,
-        enabledDay: state.enabledDay,
-        selectedDuration: state.selectedDuration,
-        selectedDay: state.selectedDay,
-        applyAll: state.applyAll,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.addNewServiceUseCase.call(
       role: role,
       docId: docId,
       service: service,
     );
     if (result.data != null) {
-      emit(
-        SuccessUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.data!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          selectedDay: state.selectedDay,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(SuccessUserInfoProfileState(oldState: state, msg: result.data!));
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDuration: state.selectedDuration,
-          selectedDay: state.selectedDay,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
@@ -335,48 +240,16 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     required ScheduleDaysModels scheduleDay,
   }) async {
-    emit(
-      LoadingUserInfoProfileState(
-        isEnabled: state.isEnabled,
-        selectedService: state.selectedService,
-        user: state.user,
-        enabledDay: state.enabledDay,
-        selectedDay: state.selectedDay,
-        selectedDuration: state.selectedDuration,
-        applyAll: state.applyAll,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.saveDayUseCase.call(
       role: role,
       docId: docId,
       scheduleDay: scheduleDay,
     );
     if (result.data != null) {
-      emit(
-        SuccessDayProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.data!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(SuccessDayProfileState(oldState: state, msg: result.data!));
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
@@ -386,17 +259,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     required String dayKey,
     required DayScheduleModels day,
   }) async {
-    emit(
-      LoadingUserInfoProfileState(
-        isEnabled: state.isEnabled,
-        selectedService: state.selectedService,
-        user: state.user,
-        enabledDay: state.enabledDay,
-        selectedDay: state.selectedDay,
-        selectedDuration: state.selectedDuration,
-        applyAll: state.applyAll,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.saveSingleDayUseCase.call(
       role: role,
       docId: docId,
@@ -404,31 +267,9 @@ class ProfileCubit extends Cubit<ProfileState> {
       dayKey: dayKey,
     );
     if (result.data != null) {
-      emit(
-        SuccessDayProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.data!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(SuccessDayProfileState(oldState: state, msg: result.data!));
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
@@ -438,17 +279,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     required ServiceModel service,
     required ServiceModel newService,
   }) async {
-    emit(
-      LoadingUserInfoProfileState(
-        isEnabled: state.isEnabled,
-        selectedService: state.selectedService,
-        user: state.user,
-        enabledDay: state.enabledDay,
-        selectedDay: state.selectedDay,
-        selectedDuration: state.selectedDuration,
-        applyAll: state.applyAll,
-      ),
-    );
+    emit(LoadingUserInfoProfileState(state));
     final result = await profileUseCase.editServiceUseCase.call(
       role: role,
       docId: docId,
@@ -456,31 +287,9 @@ class ProfileCubit extends Cubit<ProfileState> {
       newService: newService,
     );
     if (result.data != null) {
-      emit(
-        SuccessUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.data!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(SuccessUserInfoProfileState(oldState: state, msg: result.data!));
     } else {
-      emit(
-        FailedUserInfoProfileState(
-          isEnabled: state.isEnabled,
-          selectedService: state.selectedService,
-          msg: result.msg!,
-          user: state.user,
-          enabledDay: state.enabledDay,
-          selectedDay: state.selectedDay,
-          selectedDuration: state.selectedDuration,
-          applyAll: state.applyAll,
-        ),
-      );
+      emit(FailedUserInfoProfileState(oldState: state, msg: result.msg!));
     }
   }
 
