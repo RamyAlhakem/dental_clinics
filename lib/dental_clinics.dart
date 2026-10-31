@@ -1,5 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/cubit/bottom_navigation_bar_cubit.dart';
+import 'package:dental_clinics_app/clinic/features/home/data/data_source/remote_data/home_remote_data_source_imp.dart';
+import 'package:dental_clinics_app/clinic/features/home/data/repository/home_repository_imp.dart';
+import 'package:dental_clinics_app/clinic/features/home/domain/use_case/get_inquiries_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/home/domain/use_case/home_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/home/domain/use_case/update_inquiry_use_case.dart';
+import 'package:dental_clinics_app/clinic/features/home/presentation/cubit/home_cubit.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source_imp.dart';
 import 'package:dental_clinics_app/clinic/features/profile/data/repository/profile_repository_imp.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/add_new_service_use_case.dart';
@@ -56,6 +62,26 @@ class _DentalClinicsState extends State<DentalClinics> {
         BlocProvider(create: (conteext) => BottomNavigationBarCubit()),
         BlocProvider(create: (conteext) => ServicesCubit()),
         BlocProvider(create: (conteext) => RoleCubit()),
+        BlocProvider(
+          create: (conteext) => HomeCubit(
+            homeUseCase: HomeUseCase(
+              getInquiriesUseCase: GetInquiriesUseCase(
+                repository: HomeRepositoryImp(
+                  homeReomteDataSource: HomeReomteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+              updateInquiryUseCase: UpdateInquiryUseCase(
+                repository: HomeRepositoryImp(
+                  homeReomteDataSource: HomeReomteDataSourceImp(
+                    firebaseFirestore: FirebaseFirestore.instance,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
         BlocProvider(
           create: (conteext) => ProfileCubit(
             profileUseCase: ProfileUseCase(

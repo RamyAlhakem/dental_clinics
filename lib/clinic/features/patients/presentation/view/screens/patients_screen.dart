@@ -20,7 +20,7 @@ class _PatientsScreenState extends State<PatientsScreen> {
         child: ListView.separated(
           itemCount: 10,
           separatorBuilder: (context, i) => const SizedBox(height: 20),
-          itemBuilder: (context, i) => const ListTilePatient(),
+          itemBuilder: (context, i) => const SizedBox(),
         ),
       ),
     );

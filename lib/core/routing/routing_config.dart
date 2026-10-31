@@ -1,4 +1,5 @@
 import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/view/screens/bottom_navigation_bar_screen.dart';
+import 'package:dental_clinics_app/clinic/features/home/presentation/view/screens/inquiries_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/entities/service_entitie.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/add_new_service_screen.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/view/screens/available_times_screen.dart';
@@ -83,6 +84,11 @@ class RoutingConfig {
         name: RouteNames.resetPassword,
         path: "/resetPassword",
         builder: (context, state) => const ResetPasswordScreen(),
+      ),
+      GoRoute(
+        name: RouteNames.inquiriesScreen,
+        path: "/inquiriesScreen",
+        builder: (context, state) => const InquiriesScreen(),
       ),
     ],
   );

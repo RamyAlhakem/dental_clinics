@@ -12,4 +12,5 @@ class RouteNames {
   static const String screenDay = "screen day";
   static const String languageScreen = "language screen";
   static const String contactSupportScreen = "contact support screen";
+  static const String inquiriesScreen = "inquiries screen";
 }
