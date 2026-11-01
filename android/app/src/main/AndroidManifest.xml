@@ -23,7 +23,7 @@
         </intent>
     </queries>
     <application
-        android:label="dental_clinics_app"
+        android:label="DentalGo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
