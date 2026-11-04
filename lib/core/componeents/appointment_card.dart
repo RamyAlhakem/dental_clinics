@@ -11,6 +11,8 @@ class AppointmentCard extends StatelessWidget {
   final Color? foregroundColorBtnTwo;
   final String textBtnOne;
   final String textBtnTwo;
+  final String title;
+  final String subtitle;
   final bool showSecoundBtn;
   const AppointmentCard({
     super.key,
@@ -20,6 +22,8 @@ class AppointmentCard extends StatelessWidget {
     this.foregroundColorBtnTwo,
     required this.textBtnOne,
     required this.textBtnTwo,
+    required this.title,
+    required this.subtitle,
     this.showSecoundBtn = true,
     this.color = AppColors.lighterPrimaryColor,
   });
@@ -51,23 +55,20 @@ class AppointmentCard extends StatelessWidget {
                 spacing: 5,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Khaled Alhakem",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  Text(title, style: Theme.of(context).textTheme.bodySmall),
                   Row(
                     spacing: 10,
                     children: [
                       Text(
-                        "Date: 12/12/2026",
+                        subtitle,
                         style: Theme.of(context).textTheme.labelMedium!
                             .copyWith(fontWeight: FontWeight.normal),
                       ),
-                      Text(
-                        "Time: 4:00 Pm",
-                        style: Theme.of(context).textTheme.labelMedium!
-                            .copyWith(fontWeight: FontWeight.normal),
-                      ),
+                      // Text(
+                      //   "Time: 4:00 Pm",
+                      //   style: Theme.of(context).textTheme.labelMedium!
+                      //       .copyWith(fontWeight: FontWeight.normal),
+                      // ),
                     ],
                   ),
                   Row(

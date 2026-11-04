@@ -1,3 +1,4 @@
+import 'package:dental_clinics_app/clinic/features/schedule/domain/entities/appointment_entity.dart';
 import 'package:dental_clinics_app/core/componeents/appointment_card.dart';
 import 'package:dental_clinics_app/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class TabScheduleScreen extends StatefulWidget {
   final Color? foregroundColorBtnOne;
   final Color? backgroundColorBtnTwo;
   final Color? foregroundColorBtnTwo;
+  final List<AppointmentEntity> appointments;
   final String textBtnOne;
   final String textBtnTwo;
   final bool showSecoundBtn;
@@ -19,6 +21,7 @@ class TabScheduleScreen extends StatefulWidget {
     this.foregroundColorBtnTwo,
     required this.textBtnOne,
     required this.textBtnTwo,
+    required this.appointments,
     this.showSecoundBtn = true,
     this.color = AppColors.lighterPrimaryColor,
   });
@@ -32,20 +35,25 @@ class _TabScheduleScreenState extends State<TabScheduleScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: ListView.separated(
-        itemCount: 7,
-        separatorBuilder: (context, index) => const SizedBox(height: 15),
-        itemBuilder: (context, i) => AppointmentCard(
-          color: widget.color,
-          textBtnOne: widget.textBtnOne,
-          textBtnTwo: widget.textBtnTwo,
-          backgroundColorBtnOne: widget.backgroundColorBtnOne,
-          foregroundColorBtnOne: widget.foregroundColorBtnOne,
-          backgroundColorBtnTwo: widget.backgroundColorBtnTwo,
-          foregroundColorBtnTwo: widget.foregroundColorBtnTwo,
-          showSecoundBtn: widget.showSecoundBtn,
-        ),
-      ),
+      child:ListView.separated(
+              itemCount: widget.appointments.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 15),
+              itemBuilder: (context, i) => AppointmentCard(
+                title: widget.appointments[i].patientName,
+                subtitle: widget.appointments[i].appointmentDateTime
+                    .toString(),
+                color: widget.color,
+                textBtnOne: widget.textBtnOne,
+                textBtnTwo: widget.textBtnTwo,
+                backgroundColorBtnOne: widget.backgroundColorBtnOne,
+                foregroundColorBtnOne: widget.foregroundColorBtnOne,
+                backgroundColorBtnTwo: widget.backgroundColorBtnTwo,
+                foregroundColorBtnTwo: widget.foregroundColorBtnTwo,
+                showSecoundBtn: widget.showSecoundBtn,
+              ),
+            )
+       
+      
     );
   }
 }

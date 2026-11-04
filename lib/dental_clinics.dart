@@ -15,6 +15,11 @@ import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/prof
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_day_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_single_day_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
+import 'package:dental_clinics_app/clinic/features/schedule/data/data_source/remote_data/schedule_remote_data_source.dart';
+import 'package:dental_clinics_app/clinic/features/schedule/data/data_source/remote_data/schedule_remote_data_source_imp.dart';
+import 'package:dental_clinics_app/clinic/features/schedule/data/repositories/schedule_repository_impl.dart';
+import 'package:dental_clinics_app/clinic/features/schedule/domain/usecases/get_appointments_usecase.dart';
+import 'package:dental_clinics_app/clinic/features/schedule/presentation/cubit/schedule_cubit.dart';
 import 'package:dental_clinics_app/core/features/auth/data/data_source/remote_date/auth_remote_data_source_impl.dart';
 import 'package:dental_clinics_app/core/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/auth_use_case.dart';
@@ -62,6 +67,17 @@ class _DentalClinicsState extends State<DentalClinics> {
         BlocProvider(create: (conteext) => BottomNavigationBarCubit()),
         BlocProvider(create: (conteext) => ServicesCubit()),
         BlocProvider(create: (conteext) => RoleCubit()),
+        BlocProvider(
+          create: (conteext) => ScheduleCubit(
+            getAppointmentsUseCase: GetAppointmentsUseCase(
+              repository: ScheduleRepositoryImpl(
+                remoteDataSource: ScheduleRemoteDataSourceImpl(
+                  firestore: FirebaseFirestore.instance,
+                ),
+              ),
+            ),
+          ),
+        ),
         BlocProvider(
           create: (conteext) => HomeCubit(
             homeUseCase: HomeUseCase(
