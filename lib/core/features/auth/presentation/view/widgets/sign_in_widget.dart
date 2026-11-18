@@ -29,6 +29,7 @@ class SignInWidget extends StatelessWidget {
           AppText(text: context.arb.email),
           const SizedBox(height: 5),
           AppTextFormField(
+            keyboardType: TextInputType.emailAddress,
             validator: (text) {
               if (text!.isEmpty) {
                 return context.arb.invalidInput;
