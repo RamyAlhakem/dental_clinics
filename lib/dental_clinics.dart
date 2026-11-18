@@ -1,38 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dental_clinics_app/clinic/features/bottom_navigation_bar/presentation/cubit/bottom_navigation_bar_cubit.dart';
-import 'package:dental_clinics_app/clinic/features/home/data/data_source/remote_data/home_remote_data_source_imp.dart';
-import 'package:dental_clinics_app/clinic/features/home/data/repository/home_repository_imp.dart';
-import 'package:dental_clinics_app/clinic/features/home/domain/use_case/get_inquiries_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/home/domain/use_case/home_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/home/domain/use_case/update_inquiry_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/home/presentation/cubit/home_cubit.dart';
-import 'package:dental_clinics_app/clinic/features/profile/data/data_source/remote_data/profile_remote_data_source_imp.dart';
-import 'package:dental_clinics_app/clinic/features/profile/data/repository/profile_repository_imp.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/add_new_service_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/edit_service_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/get_info_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/profile_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_day_use_case.dart';
-import 'package:dental_clinics_app/clinic/features/profile/domain/use_cases/save_single_day_use_case.dart';
 import 'package:dental_clinics_app/clinic/features/profile/presentation/cubit/profile_cubit.dart';
-import 'package:dental_clinics_app/clinic/features/schedule/data/data_source/remote_data/schedule_remote_data_source.dart';
 import 'package:dental_clinics_app/clinic/features/schedule/data/data_source/remote_data/schedule_remote_data_source_imp.dart';
 import 'package:dental_clinics_app/clinic/features/schedule/data/repositories/schedule_repository_impl.dart';
 import 'package:dental_clinics_app/clinic/features/schedule/domain/usecases/get_appointments_usecase.dart';
 import 'package:dental_clinics_app/clinic/features/schedule/presentation/cubit/schedule_cubit.dart';
-import 'package:dental_clinics_app/core/features/auth/data/data_source/remote_date/auth_remote_data_source_impl.dart';
-import 'package:dental_clinics_app/core/features/auth/data/repository/auth_repository_impl.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/auth_use_case.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/logout_use_case.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/reset_password_use_case.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/sign_in_use_case.dart';
-import 'package:dental_clinics_app/core/features/auth/domain/uses_cases/sign_up_use_case.dart';
 import 'package:dental_clinics_app/core/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dental_clinics_app/core/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:dental_clinics_app/core/features/role_selection/presentation/cubit/role_cubit.dart';
 import 'package:dental_clinics_app/core/routing/routing_config.dart';
 import 'package:dental_clinics_app/core/services/cubit/services_cubit.dart';
 import 'package:dental_clinics_app/core/services/cubit/services_state.dart';
+import 'package:dental_clinics_app/core/services/di_locator/di_locator.dart';
 import 'package:dental_clinics_app/core/themes/app_theme.dart';
 import 'package:dental_clinics_app/l10n/app_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -78,105 +58,9 @@ class _DentalClinicsState extends State<DentalClinics> {
             ),
           ),
         ),
-        BlocProvider(
-          create: (conteext) => HomeCubit(
-            homeUseCase: HomeUseCase(
-              getInquiriesUseCase: GetInquiriesUseCase(
-                repository: HomeRepositoryImp(
-                  homeReomteDataSource: HomeReomteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              updateInquiryUseCase: UpdateInquiryUseCase(
-                repository: HomeRepositoryImp(
-                  homeReomteDataSource: HomeReomteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        BlocProvider(
-          create: (conteext) => ProfileCubit(
-            profileUseCase: ProfileUseCase(
-              getInfoUseCase: GetInfoUseCase(
-                repository: ProfileRepositoryImp(
-                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              addNewServiceUseCase: AddNewServiceUseCase(
-                repository: ProfileRepositoryImp(
-                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              editServiceUseCase: EditServiceUseCase(
-                repository: ProfileRepositoryImp(
-                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              saveDayUseCase: SaveDayUseCase(
-                repository: ProfileRepositoryImp(
-                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              saveSingleDayUseCase: SaveSingleDayUseCase(
-                repository: ProfileRepositoryImp(
-                  profileRemoteDataSource: ProfileRemoteDataSourceImp(
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        BlocProvider(
-          create: (conteext) => AuthCubit(
-            authUseCase: AuthUseCase(
-              signInUseCase: SignInUseCase(
-                repository: AuthRepositoryImpl(
-                  authRemoteDataSource: AuthRemoteDataSourceImpl(
-                    firebaseAuth: FirebaseAuth.instance,
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              signUpUseCase: SignUpUseCase(
-                repository: AuthRepositoryImpl(
-                  authRemoteDataSource: AuthRemoteDataSourceImpl(
-                    firebaseAuth: FirebaseAuth.instance,
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              resetPasswordUseCase: ResetPasswordUseCase(
-                repository: AuthRepositoryImpl(
-                  authRemoteDataSource: AuthRemoteDataSourceImpl(
-                    firebaseAuth: FirebaseAuth.instance,
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-              logoutUseCase: LogoutUseCase(
-                repository: AuthRepositoryImpl(
-                  authRemoteDataSource: AuthRemoteDataSourceImpl(
-                    firebaseAuth: FirebaseAuth.instance,
-                    firebaseFirestore: FirebaseFirestore.instance,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+        BlocProvider(create: (conteext) => sl<HomeCubit>()),
+        BlocProvider(create: (conteext) => sl<ProfileCubit>()),
+        BlocProvider(create: (conteext) => sl<AuthCubit>()),
       ],
 
       child: BlocBuilder<ServicesCubit, ServicesState>(
